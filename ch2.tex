@@ -1,0 +1,95 @@
+\setcounter{section}{1}
+\title{Chapter 2 Review Notes}
+
+\thispagestyle{empty}
+
+\begin{center}
+{\LARGE \bf Notes}\\
+% {\large Physics 300}\\
+\end{center}
+
+% # Supply Chain Coordination
+\section{Coordinating the newsvendor}
+
+With the standard wholesale-price contract, it is shown that the retailer does not order enough inventory to maximize the supply chain’s total profit because the retailer ignores the impact of his action on the supplier’s profit. Hence, coordination requires that the retailer be given an **incentive** to increase his order
+
+Types of contracts to coordiante the supply chain and arbitrarily divide its profit:
+- Buyback contracts
+- revenue-sharing contracts
+- quantity-flexibility contracts 
+- sales-rebate contracts
+- quantity-discount contracts
+
+% ### To do list
+- [ ] van Mieghem 1999
+- [ ] Cachon and Lariviere 2001, compliance regiems
+- [ ] Lariveire and Porteus 2001
+- [ ] TBD
+
+\subsection{Model and analysis}
+$\mu=E[D]$ is the mean of demand. The supplier's production cost per unit is $c_s$ and the retailer's marginal cost per unit is $c_r$, $c_s+c_r<p$. $c_r$ is incurred upon procuring a unit. Goodwill penalty cost $g_r$ and the analogous cost for the supplier is $g_s$. Let $c=c_s+c_r$ and $g=g_s+g_r$. $\upsilon$ is net of any salvage expenses. 
+
+The details of the negotiation process is not explored.
+
+Each firm is risk neutral. Full information.
+
+- voluntary compliance
+- forced compliance
+- The approach taken in this section is to assume forced compliance but to check if the supplier has an incentive to deviate from the proposed contractual terms.
+
+
+\begin{align*}
+    S(q)&=E[\min(q,D)]=q(1-F(q))+\int_0^q y f(y)dy=q-\int_0^q F(y)dy\\
+    I(q)&=E[(q-D)]^+=q-S(q)\\
+    L(q)&=E[(D-q)^+]=\mu-S(q)
+\end{align*}
+
+where $I(q)$ is the expected leftover inventory and $L(q)$ is the lost-sales function.
+
+The retailer's profit function is 
+\begin{align}
+    \pi_r(q)&=pS(q)+\upsilon I(q)-g_r L(q)-c_r q - T\\
+    &=(p-\upsilon+g_r)S(q)-(c_r-\upsilon)q-g_r\mu-T,
+\end{align}
+
+the supplier's profit function is 
+\begin{equation}
+    \pi_s(q)=g_s S(q)-c_s q-g_s\mu + T,
+\end{equation}
+and the supply chain's profit function is 
+\begin{equation}
+    \Pi(q)=\pi_r(q)+\pi_s(q)=(p-\upsilon+g)S(q)-(c-\upsilon)q-g\mu
+\end{equation}
+
+Let $q^o$ be a supply chain optimal order quantity, we have 
+\begin{equation}
+    S^\prime(q^o)=\overline F(q^o)=\frac{c-\upsilon}{p-\upsilon+g}
+\end{equation}
+
+since $F$ is strictly increasing and thus $\Pi$ is strictly concave and the optimal order quantity is unique.
+
+Let $q_r^*=\argmax \pi_r(q)$
+
+\subsection{The wholesale-price contract}\
+Let $T_w(q,w)=w q$. Since $\pi_r(q,w)$ is strictly concave in $q$, we have 
+
+\begin{equation}
+    (p-\upsilon+g_r)S^\prime(q_r^*)-(w+c_r-\upsilon)=0.
+\end{equation}
+
+Since $S^\prime(q)$ is decreasing, $q_r^*=q^o$ only when
+$$
+w=(\frac{p-\upsilon+g_r}{p-\upsilon+g})(c-\upsilon)-(c_r-\upsilon).
+$$
+It shows that $w\leq c_s$, i.e., coordinates only if the supplier earns a **nonpositive** profit. Thus the wholesale-price contract is generally **not considered** a coordinating contract.
+
+
+
+
+
+
+
+
+
+
+   
