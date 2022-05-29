@@ -21,10 +21,6 @@ Types of contracts to coordiante the supply chain and arbitrarily divide its pro
 - quantity-discount contracts
 
 % ### To do list
-- [ ] van Mieghem 1999
-- [ ] Cachon and Lariviere 2001, compliance regiems
-- [ ] Lariveire and Porteus 2001
-- [ ] TBD
 
 \subsection{Model and analysis}
 $\mu=E[D]$ is the mean of demand. The supplier's production cost per unit is $c_s$ and the retailer's marginal cost per unit is $c_r$, $c_s+c_r<p$. $c_r$ is incurred upon procuring a unit. Goodwill penalty cost $g_r$ and the analogous cost for the supplier is $g_s$. Let $c=c_s+c_r$ and $g=g_s+g_r$. $\upsilon$ is net of any salvage expenses. 
@@ -47,15 +43,15 @@ Each firm is risk neutral. Full information.
 where $I(q)$ is the expected leftover inventory and $L(q)$ is the lost-sales function.
 
 The retailer's profit function is 
-\begin{align}
+\begin{align*}
     \pi_r(q)&=pS(q)+\upsilon I(q)-g_r L(q)-c_r q - T\\
     &=(p-\upsilon+g_r)S(q)-(c_r-\upsilon)q-g_r\mu-T,
-\end{align}
+\end{align*}
 
 the supplier's profit function is 
-\begin{equation}
+\begin{equation*}
     \pi_s(q)=g_s S(q)-c_s q-g_s\mu + T,
-\end{equation}
+\end{equation*}
 and the supply chain's profit function is 
 \begin{equation}
     \Pi(q)=\pi_r(q)+\pi_s(q)=(p-\upsilon+g)S(q)-(c-\upsilon)q-g\mu
@@ -81,7 +77,8 @@ Since $S^\prime(q)$ is decreasing, $q_r^*=q^o$ only when
 $$
 w=(\frac{p-\upsilon+g_r}{p-\upsilon+g})(c-\upsilon)-(c_r-\upsilon).
 $$
-It shows that $w\leq c_s$, i.e., coordinates only if the supplier earns a **nonpositive** profit. Thus the wholesale-price contract is generally **not considered** a coordinating contract.
+It shows that $w\leq c_s$, i.e., coordinates only if the supplier earns a \textbf{nonpositive} profit. Thus the wholesale-price contract is generally \textbf{not considered} a coordinating contract.
+
 
 
 
