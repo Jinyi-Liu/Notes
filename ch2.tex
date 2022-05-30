@@ -7,10 +7,10 @@
 
 \begin{center}
 {\LARGE \bf Notes}\\
-% {\large Physics 300}\\
+% {\large }\\
 \end{center}
 
-% # Supply Chain Coordination
+
 \section{Coordinating the newsvendor}
 
 With the standard wholesale-price contract, it is shown that the retailer does not order enough inventory to maximize the supply chain’s total profit because the retailer ignores the impact of his action on the supplier’s profit. Hence, coordination requires that the retailer be given an **incentive** to increase his order
@@ -22,7 +22,6 @@ Types of contracts to coordiante the supply chain and arbitrarily divide its pro
 - sales-rebate contracts
 - quantity-discount contracts
 
-% ### To do list
 
 \subsection{Model and analysis}
 $\mu=E[D]$ is the mean of demand. The supplier's production cost per unit is $c_s$ and the retailer's marginal cost per unit is $c_r$, $c_s+c_r<p$. $c_r$ is incurred upon procuring a unit. Goodwill penalty cost $g_r$ and the analogous cost for the supplier is $g_s$. Let $c=c_s+c_r$ and $g=g_s+g_r$. $\nu$ is net of any salvage expenses. 
@@ -45,17 +44,18 @@ Each firm is risk neutral. Full information.
 where $I(q)$ is the expected leftover inventory and $L(q)$ is the lost-sales function.
 
 The retailer's profit function is 
-\begin{align*}
-    \pi_r(q)&=pS(q)+\nu I(q)-g_r L(q)-c_r q - T\\
+\begin{equation}\label{eq:retailer}\tag{Retailer}
+    \begin{aligned}
+        \pi_r(q)&=pS(q)+\nu I(q)-g_r L(q)-c_r q - T\\
     &=(p-\nu+g_r)S(q)-(c_r-\nu)q-g_r\mu-T,
-\end{align*}
-
+    \end{aligned}
+\end{equation}
 the supplier's profit function is 
-\begin{equation*}
+\begin{equation}\label{eq:supplier}\tag{Supplier}
     \pi_s(q)=g_s S(q)-c_s q-g_s\mu + T,
-\end{equation*}
+\end{equation}
 and the supply chain's profit function is 
-\begin{equation}
+\begin{equation}\label{eq:2.1}
     \Pi(q)=\pi_r(q)+\pi_s(q)=(p-\nu+g)S(q)-(c-\nu)q-g\mu
 \end{equation}
 
@@ -96,4 +96,14 @@ We have the supplier's marginal profit:
     \frac{\partial\pi_s(q,w(q))}{\partial q}&=g_s S^\prime(q)+w(q)-c_s+w^\prime(q)q\\
     &=(p-\nu+g_r)\overline{F}(q)\left(1+\frac{g_s}{p-\nu+g_r}-\frac{q f(q)}{\overline{F}(q)}\right)-(c-\nu)
 \end{align*}
-$\pi_s(q,w(q))$ is decreasing in $q$ if $qf(q)/\overline{F}(q)$ is increasing.
+$\pi_s(q,w(q))$ is decreasing in $q$ if $qf(q)/\overline{F}(q)$ is increasing. This type of demand distributions are called increasing generalized failure rate (\textbf{IGFR}) distributions.
+
+Similarly, from \ref{eq:retailer} we have 
+\begin{align*}
+    \pi_r(q,w(q))&=(p-\nu+g_r)S(q)-(c_r-\nu)q-g_r\nu-w(q)q\\
+    &=(p-\nu+g_r)\left(S(q)-\oF q\right)-g_r\nu
+\end{align*}
+then we have 
+\begin{equation*}
+    \frac{\partial\pi_r(q,w(q))}{\partial q}=(p-\nu+g_r)f(q)q>0.
+\end{equation*}
