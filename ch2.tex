@@ -1,4 +1,6 @@
 \setcounter{section}{1}
+\numberwithin{equation}{section}
+
 \title{Chapter 2 Review Notes}
 
 \thispagestyle{empty}
@@ -69,7 +71,7 @@ Let $q_r^*=\argmax \pi_r(q)$
 \subsection{The wholesale-price contract}\
 Let $T_w(q,w)=w q$. Since $\pi_r(q,w)$ is strictly concave in $q$, we have 
 
-\begin{equation}
+\begin{equation}\label{eq:2.3}
     (p-\upsilon+g_r)S^\prime(q_r^*)-(w+c_r-\upsilon)=0.
 \end{equation}
 
@@ -79,11 +81,11 @@ w=(\frac{p-\upsilon+g_r}{p-\upsilon+g})(c-\upsilon)-(c_r-\upsilon).
 $$
 It shows that $w\leq c_s$, i.e., coordinates only if the supplier earns a \textbf{nonpositive} profit. Thus the wholesale-price contract is generally \textbf{not considered} a coordinating contract.
 
+From \autoref{eq:2.3} we have 
+$$F(q_r^*)=1-\frac{w+c_r-\upsilon}{p-\upsilon+g_r}$$
 
-
-a
-
-
+It's obvious that there is a one-for-one mapping between $w$ and $q_r^*$, then we have $$w(q)=(p-\upsilon+g_r)\overline{F}(q)-(c_r-\upsilon),$$
+the unique wholesale price that induces the retailer to order $q_r^*$ units.
 
 
 

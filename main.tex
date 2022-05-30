@@ -23,6 +23,11 @@
 \usepackage{framed}
 \usepackage[most]{tcolorbox}
 \usepackage{xcolor}
+\usepackage{hyperref}
+
+\usepackage[style=alphabetic,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+
 \colorlet{shadecolor}{orange!15}
 \parindent 0in
 \parskip 6pt
@@ -41,4 +46,6 @@
 \begin{document}
 \input{ch2.tex}
 
+% \nocite{*}
+% \printbibliography
 \end{document}
