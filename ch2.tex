@@ -15,7 +15,7 @@
 
 With the standard wholesale-price contract, it is shown that the retailer does not order enough inventory to maximize the supply chain’s total profit because the retailer ignores the impact of his action on the supplier’s profit. Hence, coordination requires that the retailer be given an **incentive** to increase his order
 
-Types of contracts to coordiante the supply chain and arbitrarily divide its profit:
+Types of contracts to coordinate the supply chain and arbitrarily divide its profit:
 - Buyback contracts
 - revenue-sharing contracts
 - quantity-flexibility contracts 
@@ -24,7 +24,7 @@ Types of contracts to coordiante the supply chain and arbitrarily divide its pro
 
 
 \subsection{Model and analysis}
-$\mu=E[D]$ is the mean of demand. The supplier's production cost per unit is $c_s$ and the retailer's marginal cost per unit is $c_r$, $c_s+c_r<p$. $c_r$ is incurred upon procuring a unit. Goodwill penalty cost $g_r$ and the analogous cost for the supplier is $g_s$. Let $c=c_s+c_r$ and $g=g_s+g_r$. $\nu$ is net of any salvage expenses. 
+$\mu=E[D]$ is the mean of demand. The supplier's production cost per unit is $c_s$ and the retailer's marginal cost per unit is $c_r$, $c_s+c_r<p$. $c_r$ is incurred upon procuring a unit. Goodwill penalty cost $g_r$ and the analogous cost for the supplier is $g_s$. Let $c=c_s+c_r$ and $g=g_s+g_r$. $v$ is net of any salvage expenses. 
 
 The details of the negotiation process is not explored.
 
@@ -46,8 +46,8 @@ where $I(q)$ is the expected leftover inventory and $L(q)$ is the lost-sales fun
 The retailer's profit function is 
 \begin{equation}\label{eq:retailer}\tag{Retailer}
     \begin{aligned}
-        \pi_r(q)&=pS(q)+\nu I(q)-g_r L(q)-c_r q - T\\
-    &=(p-\nu+g_r)S(q)-(c_r-\nu)q-g_r\mu-T,
+        \pi_r(q)&=pS(q)+v I(q)-g_r L(q)-c_r q - T\\
+    &=(p-v+g_r)S(q)-(c_r-v)q-g_r\mu-T,
     \end{aligned}
 \end{equation}
 the supplier's profit function is 
@@ -56,12 +56,12 @@ the supplier's profit function is
 \end{equation}
 and the supply chain's profit function is 
 \begin{equation}\label{eq:2.1}
-    \Pi(q)=\pi_r(q)+\pi_s(q)=(p-\nu+g)S(q)-(c-\nu)q-g\mu
+    \Pi(q)=\pi_r(q)+\pi_s(q)=(p-v+g)S(q)-(c-v)q-g\mu
 \end{equation}
 
 Let $q^o$ be a supply chain optimal order quantity, we have 
 \begin{equation}
-    S^\prime(q^o)=\overline F(q^o)=\frac{c-\nu}{p-\nu+g}
+    S^\prime(q^o)=\overline F(q^o)=\frac{c-v}{p-v+g}
 \end{equation}
 
 since $F$ is strictly increasing and thus $\Pi$ is strictly concave and the optimal order quantity is unique.
@@ -72,18 +72,18 @@ Let $q_r^*=\argmax \pi_r(q)$
 Let $T_w(q,w)=w q$. Since $\pi_r(q,w)$ is strictly concave in $q$, we have 
 
 \begin{equation}\label{eq:2.3}
-    (p-\nu+g_r)S^\prime(q_r^*)-(w+c_r-\nu)=0.
+    (p-v+g_r)S^\prime(q_r^*)-(w+c_r-v)=0.
 \end{equation}
 
 Since $S^\prime(q)$ is decreasing, $q_r^*=q^o$ only when
 $$
-w=(\frac{p-\nu+g_r}{p-\nu+g})(c-\nu)-(c_r-\nu).
+w=(\frac{p-v+g_r}{p-v+g})(c-v)-(c_r-v).
 $$
 It shows that $w\leq c_s$, i.e., coordinates only if the supplier earns a \textbf{nonpositive} profit. Thus the wholesale-price contract is generally \textbf{not considered} a coordinating contract.
 
 From \autoref{eq:2.3} we have 
-$$F(q_r^*)=1-\frac{w+c_r-\nu}{p-\nu+g_r}$$
-It's obvious that there is a one-for-one mapping between $w$ and $q_r^*$, then we have $$w(q)=(p-\nu+g_r)\overline{F}(q)-(c_r-\nu),$$
+$$F(q_r^*)=1-\frac{w+c_r-v}{p-v+g_r}$$
+It's obvious that there is a one-for-one mapping between $w$ and $q_r^*$, then we have $$w(q)=(p-v+g_r)\overline{F}(q)-(c_r-v),$$
 the unique wholesale price that induces the retailer to order $q_r^*$ units.
 Then we have the supplier's profit function:
 \begin{equation}
@@ -94,16 +94,101 @@ from this we know that the \textit{compliance regime} \textbf{does not} matter w
 We have the supplier's marginal profit:
 \begin{align*}
     \frac{\partial\pi_s(q,w(q))}{\partial q}&=g_s S^\prime(q)+w(q)-c_s+w^\prime(q)q\\
-    &=(p-\nu+g_r)\overline{F}(q)\left(1+\frac{g_s}{p-\nu+g_r}-\frac{q f(q)}{\overline{F}(q)}\right)-(c-\nu)
+    &=(p-v+g_r)\overline{F}(q)\left(1+\frac{g_s}{p-v+g_r}-\frac{q f(q)}{\overline{F}(q)}\right)-(c-v)
 \end{align*}
 $\pi_s(q,w(q))$ is decreasing in $q$ if $qf(q)/\overline{F}(q)$ is increasing. This type of demand distributions are called increasing generalized failure rate (\textbf{IGFR}) distributions.
 
 Similarly, from \ref{eq:retailer} we have 
 \begin{align*}
-    \pi_r(q,w(q))&=(p-\nu+g_r)S(q)-(c_r-\nu)q-g_r\nu-w(q)q\\
-    &=(p-\nu+g_r)\left(S(q)-\oF q\right)-g_r\nu
+    \pi_r(q,w(q))&=(p-v+g_r)S(q)-(c_r-v)q-g_rv-w(q)q\\
+    &=(p-v+g_r)\left(S(q)-\oF q\right)-g_rv
 \end{align*}
 then we have 
 \begin{equation*}
-    \frac{\partial\pi_r(q,w(q))}{\partial q}=(p-\nu+g_r)f(q)q>0.
+    \frac{\partial\pi_r(q,w(q))}{\partial q}=(p-v+g_r)f(q)q>0,
 \end{equation*}
+so the supplier can increase the retailer's profit by reducing the price. 
+The supply chain's profit is increasing in $q$ for $[q_s^*,q^o]$ and so is the retailer's profit. Hence, \textbf{an increase in retail power can actually improve supply chain performance.} 
+
+Define the efficiency of the contract, $\Pi(q_s^*)/\Pi(q^o)$ and $\pi_s(q_s^*,w(q_s^*))/\Pi(q_s^*)$, the supplier's profit share. For a broad set of demand distributions, the argument that the retailer is being compensated for \textbf{the risk that demand and supply do no match} holds, where both measures approach 1 with the variation approach 0.\cite{lariviere_selling_2001}
+
+Two-period version of the model which has excess inventory and demand updating. \textit{Push} and \textit{pull} strategies. Advanced purchase discount $w_1<w_2$. The supply chain effciency is substantially higher. There exist conditions in which advanced purchase discounts coordinate the supply chain and arbitrarily allocate its profit. \textbf{TBD}
+
+\subsection{The buyback contract}
+With a buyback contract the supplier charges the retailer $w$ per unit puchased, but pays the retailer $b$ per unit remaining at the end of the season:
+$$T_b(q,w,b)=wq-bI(q)=b S(q)+(w-b)q.$$
+See \cite{pasternack_optimal_1985} for detail. An important \textbf{implicit} assumption is that the supplier is able to verify the number of remaining units and the cost of such monitoring does not negate the benefits created by the contract.
+
+The retailer's profit now is:
+$$\pi_{\mathrm{r}}\left(q, w_{\mathrm{b}}, b\right)=\left(p-v+g_{\mathrm{r}}-b\right) S(q)-\left(w_{\mathrm{b}}-b+c_{\mathrm{r}}-v\right) q-g_{\mathrm{r}} \mu$$
+Consider $\{w_b,b\}$ such that for $\lambda\geq 0$,
+\begin{align}
+    &p-v+g_r-b=\lambda(p-v+g)\\
+    &w_b-b+c_r-v=\lambda(c-v)
+\end{align}
+A Comparing with \autoref{eq:2.1} leads to:
+\begin{align}
+    \pi_r(q,w_b,b)&=\lambda(p-v+g)S(q)-\lambda(c-v)q-g_r\mu\nonumber\\
+    &=\lambda\Pi(q)+\mu(\lambda g-g_r).\label{eq:2.7}
+\end{align}
+The supplier's profit function is 
+\begin{equation*}
+    \pi_s(q,w_b,b)=(1-\lambda)\Pi(q)-\mu(\lambda g-g_r).
+\end{equation*}
+So the buyback contract \textbf{coordinates} with voluntary compliance as long as $\lambda\leq 1$. When $\lambda=1$ (or $\lambda=0$), the $q^o$ is optimal for the supplier (or retailer), but so is every other quantity since the profit function is not related with $q$. Hence, coordination is possible but no longer the uniuqe Nash equilibrium.
+
+The $\lambda$ parameter acts to allocate the supply chain's profit between the two firms. The retailer earns the entire supply chain profit $\pi_r(q^o,w_b,b)=\Pi(q^o)$ when 
+\begin{equation}\label{eq:2.8}
+    \lambda=\frac{\Pi(q^o)+\mu g_r}{\Pi(q^o)+\mu g}\leq 1
+\end{equation}
+and the supplier $\pi_s(q^o,w_b,b)=\Pi(q^o)$, when
+\begin{equation}\label{eq:2.9}
+    0\leq \lambda=\frac{\mu g_r}{\Pi(q^o)+\mu g}.
+\end{equation}
+So \textbf{every} possible profit allocation is feasible with this set of coordinating contracts, assuming $\lambda=0$ and $\lambda=1$ are considered feasible.
+
+\begin{note}
+    The coordination of the supply chain requires the \textbf{simultaneous adjustment} of both the wholesale price $w_b$ and the buyback rate $b$. This has implications for the bargaining process, e.g., never negotiate those parameters sequentially.
+\end{note}
+
+\begin{note}
+    Stock rebalancing in centralized system and decentralized system.
+\end{note}
+
+\subsection{The revenue-sharing contract}
+With a revenue-sharing contract the supplier charges $w_r$ per unit purchased plus the retailer gives the supplier a percentage of his revenue. Let $\phi$ be the fraction of revenue that retailer keeps.
+
+The transfer payment with revenue sharing is 
+\begin{align*}
+    T_r(q,w_r,\phi)&=w_r q+(1-\phi)(vI(q)+pS(q))\\
+    &=(w_r+(1-\phi)v)q+(1-\phi)(p-v)S(q)
+\end{align*}
+The retailer's profit function is
+$$
+\pi_{\mathrm{r}}\left(q, w_{\mathrm{r}}, \phi\right)=\left(\phi(p-v)+g_{\mathrm{r}}\right) S(q)-\left(w_{\mathrm{r}}+c_{\mathrm{r}}-\phi v\right) q-g_{\mathrm{r}} \mu
+$$
+Now consider the set of revenue-sharing contracts, $\left\{w_{\mathrm{r}}, \phi\right\}$, such that $\lambda \geq 0$ and
+$$
+\begin{aligned}
+&\phi(p-v)+g_{\mathrm{r}}=\lambda(p-v+g) \\
+&w_{\mathrm{r}}+c_{\mathrm{r}}-\phi v=\lambda(c-v)
+\end{aligned}
+$$
+Now we have 
+\begin{align}
+    &\pi_r(q,w_r,\phi)=\lambda\Pi(q)+\mu(\lambda g - g_r)\label{eq:2.10}\\
+    &\pi_s(q,w_r,\phi)=(1-\lambda)\Pi(q)-\mu(\lambda g-g_r)\nonumber.
+\end{align}
+It's obvious that \autoref{eq:2.8} and \autoref{eq:2.9} provides the same $\lambda$.
+
+From \autoref{eq:2.10} and \autoref{eq:2.7} we find similarity. Consider a coordinating buyback contract $\{w_b,b\}$. The retailer pays $w-b-b$ for each unit purchased and an additional $b$ per unit sold. With revenue sharing the retailer pays $w_r+(1-\phi)v$ and $(1-\phi)(p-v)$.  Now they are equivalent when 
+\begin{align*}
+    w_b-b&=w_r+(1-\phi)v\\
+    b&=(1-\phi)(p-v)
+\end{align*}
+\begin{note}
+    Their path will diverge in more complex settings.
+\end{note}
+
+
+
