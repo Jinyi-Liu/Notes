@@ -25,7 +25,7 @@ Types of contracts to coordiante the supply chain and arbitrarily divide its pro
 % ### To do list
 
 \subsection{Model and analysis}
-$\mu=E[D]$ is the mean of demand. The supplier's production cost per unit is $c_s$ and the retailer's marginal cost per unit is $c_r$, $c_s+c_r<p$. $c_r$ is incurred upon procuring a unit. Goodwill penalty cost $g_r$ and the analogous cost for the supplier is $g_s$. Let $c=c_s+c_r$ and $g=g_s+g_r$. $\upsilon$ is net of any salvage expenses. 
+$\mu=E[D]$ is the mean of demand. The supplier's production cost per unit is $c_s$ and the retailer's marginal cost per unit is $c_r$, $c_s+c_r<p$. $c_r$ is incurred upon procuring a unit. Goodwill penalty cost $g_r$ and the analogous cost for the supplier is $g_s$. Let $c=c_s+c_r$ and $g=g_s+g_r$. $\nu$ is net of any salvage expenses. 
 
 The details of the negotiation process is not explored.
 
@@ -46,8 +46,8 @@ where $I(q)$ is the expected leftover inventory and $L(q)$ is the lost-sales fun
 
 The retailer's profit function is 
 \begin{align*}
-    \pi_r(q)&=pS(q)+\upsilon I(q)-g_r L(q)-c_r q - T\\
-    &=(p-\upsilon+g_r)S(q)-(c_r-\upsilon)q-g_r\mu-T,
+    \pi_r(q)&=pS(q)+\nu I(q)-g_r L(q)-c_r q - T\\
+    &=(p-\nu+g_r)S(q)-(c_r-\nu)q-g_r\mu-T,
 \end{align*}
 
 the supplier's profit function is 
@@ -56,12 +56,12 @@ the supplier's profit function is
 \end{equation*}
 and the supply chain's profit function is 
 \begin{equation}
-    \Pi(q)=\pi_r(q)+\pi_s(q)=(p-\upsilon+g)S(q)-(c-\upsilon)q-g\mu
+    \Pi(q)=\pi_r(q)+\pi_s(q)=(p-\nu+g)S(q)-(c-\nu)q-g\mu
 \end{equation}
 
 Let $q^o$ be a supply chain optimal order quantity, we have 
 \begin{equation}
-    S^\prime(q^o)=\overline F(q^o)=\frac{c-\upsilon}{p-\upsilon+g}
+    S^\prime(q^o)=\overline F(q^o)=\frac{c-\nu}{p-\nu+g}
 \end{equation}
 
 since $F$ is strictly increasing and thus $\Pi$ is strictly concave and the optimal order quantity is unique.
@@ -72,23 +72,28 @@ Let $q_r^*=\argmax \pi_r(q)$
 Let $T_w(q,w)=w q$. Since $\pi_r(q,w)$ is strictly concave in $q$, we have 
 
 \begin{equation}\label{eq:2.3}
-    (p-\upsilon+g_r)S^\prime(q_r^*)-(w+c_r-\upsilon)=0.
+    (p-\nu+g_r)S^\prime(q_r^*)-(w+c_r-\nu)=0.
 \end{equation}
 
 Since $S^\prime(q)$ is decreasing, $q_r^*=q^o$ only when
 $$
-w=(\frac{p-\upsilon+g_r}{p-\upsilon+g})(c-\upsilon)-(c_r-\upsilon).
+w=(\frac{p-\nu+g_r}{p-\nu+g})(c-\nu)-(c_r-\nu).
 $$
 It shows that $w\leq c_s$, i.e., coordinates only if the supplier earns a \textbf{nonpositive} profit. Thus the wholesale-price contract is generally \textbf{not considered} a coordinating contract.
 
 From \autoref{eq:2.3} we have 
-$$F(q_r^*)=1-\frac{w+c_r-\upsilon}{p-\upsilon+g_r}$$
-
-It's obvious that there is a one-for-one mapping between $w$ and $q_r^*$, then we have $$w(q)=(p-\upsilon+g_r)\overline{F}(q)-(c_r-\upsilon),$$
+$$F(q_r^*)=1-\frac{w+c_r-\nu}{p-\nu+g_r}$$
+It's obvious that there is a one-for-one mapping between $w$ and $q_r^*$, then we have $$w(q)=(p-\nu+g_r)\overline{F}(q)-(c_r-\nu),$$
 the unique wholesale price that induces the retailer to order $q_r^*$ units.
+Then we have the supplier's profit function:
+\begin{equation}
+    \pi_s(q,w(q))=g_s S(q)+(w(q)-c_s)q-g_s\mu\label{eq:2.4},
+\end{equation}
+from this we know that the \textit{compliance regime} \textbf{does not} matter with this contract: for a fixed $w$ no less than $c_s$ the supplier's profit  is nondecreasing in $q$.
 
-
-
-
-
-   
+We have the supplier's marginal profit:
+\begin{align*}
+    \frac{\partial\pi_s(q,w(q))}{\partial q}&=g_s S^\prime(q)+w(q)-c_s+w^\prime(q)q\\
+    &=(p-\nu+g_r)\overline{F}(q)\left(1+\frac{g_s}{p-\nu+g_r}-\frac{q f(q)}{\overline{F}(q)}\right)-(c-\nu)
+\end{align*}
+$\pi_s(q,w(q))$ is decreasing in $q$ if $qf(q)/\overline{F}(q)$ is increasing.
