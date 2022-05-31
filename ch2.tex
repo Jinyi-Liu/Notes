@@ -37,7 +37,7 @@ Each firm is risk neutral. Full information.
 
 \begin{align*}
     S(q)&=E[\min(q,D)]=q(1-F(q))+\int_0^q y f(y)dy=q-\int_0^q F(y)dy\\
-    I(q)&=E[(q-D)]^+=q-S(q)\\
+    I(q)&=E[(q-D)^+]=q-S(q)\\
     L(q)&=E[(D-q)^+]=\mu-S(q)
 \end{align*}
 
@@ -181,7 +181,7 @@ Now we have
 \end{align}
 It's obvious that \autoref{eq:2.8} and \autoref{eq:2.9} provides the same $\lambda$.
 
-From \autoref{eq:2.10} and \autoref{eq:2.7} we find similarity. Consider a coordinating buyback contract $\{w_b,b\}$. The retailer pays $w-b-b$ for each unit purchased and an additional $b$ per unit sold. With revenue sharing the retailer pays $w_r+(1-\phi)v$ and $(1-\phi)(p-v)$.  Now they are equivalent when 
+From \autoref{eq:2.10} and \autoref{eq:2.7} we find similarity. Consider a coordinating buyback contract $\{w_b,b\}$. The retailer pays $w_b-b$ for each unit purchased and an additional $b$ per unit sold. With revenue sharing the retailer pays $w_r+(1-\phi)v$ and $(1-\phi)(p-v)$.  Now they are equivalent when 
 \begin{align*}
     w_b-b&=w_r+(1-\phi)v\\
     b&=(1-\phi)(p-v)
@@ -190,5 +190,29 @@ From \autoref{eq:2.10} and \autoref{eq:2.7} we find similarity. Consider a coord
     Their path will diverge in more complex settings.
 \end{note}
 
+\subsection{The quantity-flexibility contract}
+With a quantity-flexibility contract, the supplier charges $w_q$ per unit purchased but then compensates the retailer for his losses on unsold units. The retailer receives a credit from the supplier at the end of the season equal to $(w_q+c_r-v)\min(I,\delta q)$, where $I$ is the leftover and $\delta\in[0,1]$ a contract parameter. It \textbf{fully} protects the retailer on \textbf{a portion of} the retailer's order whereas the buyback contract gives \textbf{partial} protection on the retailer's \textbf{entire order}. 
+% Tsay 1999.
 
-
+Now the transfer payment is 
+% Actually, I don't how to derive this equation.
+\begin{equation*}
+    T_q(q,w_q,\delta)=w_q q-(w_q+c_r-v)\int_{(1-\delta)q}^q F(y)dy
+\end{equation*}
+\begin{note}
+    Need to be checked.
+\end{note}
+The retailer's profit function is 
+$$\begin{aligned}
+    \pi_{\mathrm{r}}\left(q, w_{q}, \delta\right)=&\left(p-v+g_{\mathrm{r}}\right) S(q)-\left(c_{\mathrm{r}}-v\right) q-T_{q}\left(q, w_{q}, \delta\right)-\mu g_{\mathrm{r}} \\
+    =&\left(p-v+g_{\mathrm{r}}\right) S(q)-\left(w_{q}+c_{\mathrm{r}}-v\right) q \\
+    &+\left(w_{q}+c_{\mathrm{r}}-v\right) \int_{(1-\delta) q}^{q} F(y) \mathrm{d} y-\mu g_{\mathrm{r}}.
+\end{aligned}$$
+To achieve supply chain coordination it is necessary that
+\begin{equation}\label{eq:2.11}
+    (p-v+g_r)S^\prime(q^o)-(w_q+c_r-v)\left(1-F(q^o)+(1-\delta)F((1-\delta)q^o)\right)=0.
+\end{equation}
+Let $w_{q}(\delta)$ be the wholesale price that satisfies \autoref{eq:2.11}:
+$$
+w_{q}(\delta)=\frac{\left(p-v+g_{\mathrm{r}}\right)\left(1-F\left(q^{\mathrm{o}}\right)\right)}{1-F\left(q^{\mathrm{o}}\right)+(1-\delta) F\left((1-\delta) q^{\mathrm{o}}\right)}-c_{\mathrm{r}}+v
+$$
