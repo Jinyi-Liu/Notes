@@ -60,7 +60,7 @@ and the supply chain's profit function is
 \end{equation}
 
 Let $q^o$ be a supply chain optimal order quantity, we have 
-\begin{equation}
+\begin{equation}\label{eq:2.2}
     S^\prime(q^o)=\overline F(q^o)=\frac{c-v}{p-v+g}
 \end{equation}
 
@@ -216,3 +216,64 @@ Let $w_{q}(\delta)$ be the wholesale price that satisfies \autoref{eq:2.11}:
 $$
 w_{q}(\delta)=\frac{\left(p-v+g_{\mathrm{r}}\right)\left(1-F\left(q^{\mathrm{o}}\right)\right)}{1-F\left(q^{\mathrm{o}}\right)+(1-\delta) F\left((1-\delta) q^{\mathrm{o}}\right)}-c_{\mathrm{r}}+v
 $$
+$w_{q}(\delta)$ is indeed a coordinating wholesale price if the retailer's profit function is concave:
+$$
+\begin{aligned}
+\frac{\partial^{2} \pi_{\mathrm{r}}\left(q, w_{q}(\delta), \delta\right)}{\partial q^{2}} &=-\left(p+g_{\mathrm{r}}-w_{q}(\delta)-c_{\mathrm{r}}\right) f(q)-\left(w_{q}(\delta)+c_{\mathrm{r}}-v\right)\left(1+(1-\delta)^{2} f((1-\delta) q)\right) \\
+& \leq 0
+\end{aligned}
+$$
+which holds when $v-c_{\mathrm{r}} \leq w_{q}(\delta) \leq p+g_{\mathrm{r}}-c_{\mathrm{r}}$. That range is satisfied with $\delta \in[0,1]$ because
+$$
+\begin{aligned}
+&w_{q}(0)=\left(p-v+g_{\mathrm{r}}\right) \bar{F}\left(q^{\mathrm{o}}\right)+v-c_{\mathrm{r}} \\
+&w_{q}(1)=p+g_{\mathrm{r}}-c_{\mathrm{r}}
+\end{aligned}
+$$
+and $w_{q}(\delta)$ is increasing in $\delta$.
+
+Now we consider supplier's profit function:
+$$
+\pi_{\mathrm{s}}\left(q, w_{q}(\delta), \delta\right)=g_{\mathrm{s}} S(q)+\left(w_{q}(\delta)-c_{\mathrm{s}}\right) q-\left(w_{q}(\delta)+c_{\mathrm{r}}-v\right) \int_{(1-\delta) q}^{q} F(y) \mathrm{d} y-\mu g_{\mathrm{s}}
+$$
+and
+$$
+\begin{aligned}
+\frac{\partial \pi_{\mathrm{s}}\left(q, w_{q}(\delta), \delta\right)}{\partial q}=& g_{\mathrm{s}}(1-F(q))+\left(w_{q}(\delta)-c_{\mathrm{s}}\right)-\left(w_{q}(\delta)+c_{\mathrm{r}}-v\right)(F(q)\\
+&-(1-\delta) F((1-\delta) q)) \\
+=& g_{\mathrm{s}}(1-F(q))-c+v+\left(w_{q}(\delta)+c_{\mathrm{r}}-v\right)(1-F(q)\\
+&+(1-\delta) F((1-\delta) q))
+\end{aligned}
+$$
+The supplier's first-order condition at $q^{\circ}$ is satisfied:
+$$
+\frac{\partial \pi_{\mathrm{s}}\left(q^{\mathrm{o}}, w_{q}(\delta), \delta\right)}{\partial q}=g_{\mathrm{s}}\left(1-F\left(q^{\mathrm{o}}\right)\right)-c+v+\left(p-v+g_{\mathrm{r}}\right)\left(1-F\left(q^{\mathrm{o}}\right)\right)=0
+$$
+\begin{note}
+    See \autoref{eq:2.2}
+\end{note}
+However, the sign of the second-order condition at $q^{\circ}$ is ambiguous,
+$$
+\frac{\partial^{2} \pi_{\mathrm{s}}\left(q, w_{q}(\delta), \delta\right)}{\partial q^{2}}=-w_{q}(\delta)\left(f(q)-(1-\delta)^{2} f((1-\delta) q)\right)-g_{\mathrm{s}} f(q)
+$$
+Hence, supply chain coordination under \textbf{voluntary compliance} is \textbf{not assured} with a quantity-flexibility contract even if the wholesale price is $w_q(\delta)$. It's \textbf{achieved} under \textbf{forced compliance} since then the supplier's action is \textbf{not relevant}.
+\begin{note}
+    There are some conditions that makes $q^o$ a local maximum, e.g., $\mu=10$, $\sigma=1$, $p=10$, $c_s=1$, $c_r=0$, $g_r=g_s=v=0$ and $\delta=0.1$. 
+\end{note}
+
+\textbf{Assuming a $(w_q(\delta),\delta)$ quantity-flexibility contract coordinates the channel.} When $\delta=0$, for the retailer we have
+\begin{align*}
+    \pi_r(q,w_q(0),0)&=(p-v+g_r)S(q)-\left(\frac{p-v+g_r}{p-v+g}\right)(c-v)q^o-\mu g_r\\
+    &=\Pi(q^o)+g_s\left(\mu-S(q^o)+\overline{F}(q^o) q^o \right)\\
+    &\geq \Pi(q_o)
+\end{align*}
+When $\delta=1$, for the supplier we have
+\begin{align*}
+    \pi_s(q,w_q(1),1)&=g_s S(q^o)+(p+g_r-c)q^o-(p+g_r-v)\int_0^q F(y)dy-\mu g_s\\
+    &=\Pi(q^o)+\mu g_r\\
+    &\geq \Pi(q^o)
+\end{align*}
+Since the profit function is continuous in $\delta$, all possible allocation of $\Pi(q^o)$ are possible.
+
+\subsection{The sales-rebate contract}
+
