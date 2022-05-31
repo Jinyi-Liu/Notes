@@ -276,4 +276,72 @@ When $\delta=1$, for the supplier we have
 Since the profit function is continuous in $\delta$, all possible allocation of $\Pi(q^o)$ are possible.
 
 \subsection{The sales-rebate contract}
+% \begin{note}
+%     \cite{taylor_supply_2002} and \cite{krishnan_coordinating_2004}
+% \end{note}
+With a sales-rebate contract the supplier charges ws per unit purchased
+but then gives the retailer an r rebate per unit sold above a threshold t.
+The transfer payment with the sales-rebate contract is
+$$
+T_{\mathrm{s}}\left(q, w_{\mathrm{s}}, r, t\right)= \begin{cases}w_{\mathrm{s}} q & q<t \\ \left(w_{\mathrm{s}}-r\right) q+r\left(t+\int_{t}^{q} F(y) \mathrm{d} y\right) & q \geq t\end{cases}
+$$
+\begin{note}
+    $T=w_s q-r E[\left(\min(q,D)-t\right)^+]$
+\end{note}
+For this contract to achieve supply chain coordination, $q^{o}$ must at least be a local maximum:
+\begin{equation}\label{eq:2.12}
+    \frac{\partial \pi_{\mathrm{r}}\left(q^{\mathrm{o}}, w_{\mathrm{s}}, r, t\right)}{\partial q}=\left(p-v+g_{\mathrm{r}}\right) \bar{F}\left(q^{\mathrm{o}}\right)-\left(c_{\mathrm{r}}-v\right)-\frac{\partial T_{\mathrm{s}}\left(q^{\mathrm{o}}, w_{\mathrm{s}}, r, t\right)}{\partial q}=0
+\end{equation}
+If $q^o\leq t$, the above leads to $w_s=c_s-g_s\overline{F}(q^o)\leq c_s$, which is not acceptable to the supplier. So assume $q^o>t$. Then from \autoref{eq:2.12} we have 
+\begin{equation}\label{eq:2.13}
+    w_s(r)=(p-v+g_r+r)\overline{F}(q^o)-c_r+v
+\end{equation}
+Thus, we have the retailer's profit function
+$$
+\begin{aligned}
+\pi_{\mathrm{r}}\left(q, w_{\mathrm{s}}(r), r, t\right)=& \Pi(q)+g_{\mathrm{s}}\left(\mu-S(q)+q \bar{F}\left(q^{\mathrm{o}}\right)\right)-r q \bar{F}\left(q^{\mathrm{o}}\right) \\
++& \begin{cases}0 & q<t \\
+r q-r\left(t+\int_{t}^{q} F(y) \mathrm{d} y\right) & q \geq t\end{cases}
+\end{aligned}
+$$
+and
+$$
+\begin{aligned}
+\pi_{\mathrm{r}}\left(q^{\mathrm{o}}, w_{\mathrm{s}}(r), r, t\right)=& \Pi\left(q^{\mathrm{o}}\right)+g_{\mathrm{s}}\left(\mu-S\left(q^{\mathrm{o}}\right)+q^{\mathrm{o}} \bar{F}\left(q^{\mathrm{o}}\right)\right) \\
+&+r\left(q^{\mathrm{o}} F\left(q^{\mathrm{o}}\right)-t-\int_{t}^{q^{\mathrm{o}}} F(y) \mathrm{d} y\right)
+\end{aligned}
+$$
+With $t=0$ the retailer earns more than $\Pi\left(q^{\circ}\right)$, so $q^{\circ}$ is surely optimal. With $t=q^{\mathrm{o}}$, the retailer's profit function is decreasing for $t \geq q^{\mathrm{o}} ; \bar{q}$ is at least as good for the retailer as $q^{\mathrm{o}}$. Given that $\pi_{\mathrm{r}}\left(q^{\mathrm{o}}, w_{\mathrm{s}}(r), r, t\right)$ is decreasing in $t$, there must exist some $t$ in the range $\left[0, q^{\mathrm{o}}\right]$ such that $\pi_{\mathrm{r}}\left(q^{\mathrm{o}}, w_{\mathrm{s}}(r), r, t\right)=$ $\pi_{\mathrm{r}}\left(\bar{q}, w_{\mathrm{s}}(r), r, t\right)$, i.e., there are coordinating contracts such that $q^o$ is preferred by the retailer over $\overline{q}$.
+\begin{note}
+    Why there must exist some $t$ in $[0,q^o]$ such that $\pi_{\mathrm{r}}\left(q^{\mathrm{o}}, w_{\mathrm{s}}(r), r, t\right)=$ $\pi_{\mathrm{r}}\left(\bar{q}, w_{\mathrm{s}}(r), r, t\right)$?
+\end{note}
+\begin{note}
+    It's easy to check there are a set of contracts that generate any allocation of supply chain's profit.
+\end{note}
+Now consider the supplier's production decision. The supplier's profit function in this type of contract is 
+$$
+\pi_{\mathrm{s}}\left(q, w_{\mathrm{s}}(r), r, t\right)=-g_{\mathrm{s}}(\mu-S(q))-c_{\mathrm{s}} q+T_{\mathrm{s}}\left(q, w_{\mathrm{s}}(r), r, t\right)
+$$
+For $q>t$
+$$
+\begin{aligned}
+\frac{\partial \pi_{\mathrm{s}}\left(q, w_{\mathrm{s}}(r), r, t\right)}{\partial q} &=g_{\mathrm{s}} \bar{F}(q)-c_{\mathrm{s}}+w_{\mathrm{s}}(r)-r+r F(q) \\
+&=\left(r-g_{\mathrm{s}}\right)\left(F(q)-F\left(q^{\mathrm{o}}\right)\right)
+\end{aligned}
+$$
+To have $q^o$ a local maximum for the supplier, we should have $r<g_s$ for $q\leq q^o$ which leads to that $w_s(r)\leq c_s$ and the supplier cannot earn a positive profit. Thus we must have $r>g_s$, but this implies the supplier loss money for each unit delivered to the retailer above $t$ by \autoref{eq:2.13}:
+\begin{equation*}
+    w_s(r)-r=c_s-v-g_s\overline{F}(q^o)-rF(q^o)<c_s.
+\end{equation*}
+Thus the sales-rebate contract does not coordinate the supply chain with voluntary compliance.
+
+
+
+
+
+
+
+
+
+
 
