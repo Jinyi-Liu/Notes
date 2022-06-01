@@ -340,8 +340,20 @@ This section considers an "all unit" quantity discount, i.e., $T_d(q)=w_d(q)q$ w
 \begin{note}
     There are many types of quantity discounts. See Moorthy (1987) for a more detailed explanation for why many coordinating quantity discount schedules exist. See Kolay and Shaffer (2002) for a discussion on different types of quantity discounts. 
 \end{note}
+The retailer's profit function is then 
+$$\pi_r(q,w_d(q))=(p-v+g_r)S(q)-(w_d(q)+c_r-v)q-g_r\mu.$$
+One technique to obtain coordination is to choose the payment schedule such that the retailer's profit equals a constant fraction of the supply chain's profit. To be specific, let 
+$$w_d(q)=((1-\lambda)(p-v+g)-g_s)\left(\frac{S(q)}{q}\right)+\lambda(c-v)-c_r+v.$$
+The above is decreasing in $q$ if $\lambda\leq\overline{\lambda}$, where 
+$$\overline{\lambda}=\frac{p-v+g_r}{p-v+g},$$
+since $S(q)/q$ is decreasing in $q$. The retailer's profit function is now 
+\begin{align*}
+    \pi_r(q,w_d(q))&=\lambda(p-v+g)S(q)-\lambda(c-v)q-g_r\mu\\
+    &=\lambda(\Pi(q)+g\mu)-g_r\mu
+\end{align*}
+Hence $q^o$ is optimal for both the retailer and the supplier. The parameter $\lambda$ acts to allocate the supply chain's profit between the two firms, however, it has an upperbound that prevents too much profit from being allocated to the retailer. The $w_d(q)$ can still coordinate even if $\lambda>\overline{\lambda}$ but then the $w_d(q)$ will be increasing in $q$, i.e., a quantity-premium contract.
 
-
+\subsection{Discussion}
 
 
 
