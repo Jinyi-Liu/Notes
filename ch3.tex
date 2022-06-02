@@ -60,7 +60,7 @@ For coordination we must have the first-order condition:
 \begin{equation}\label{eq:3.3}
     \frac{\partial\pi_r(q,\pq,w_b,r,t)}{\partial p}=\spq+(\pq-v+g_r-b)\frac{\partial\spq}{\partial p}=0.
 \end{equation}
-But comparing with \autoref{eq:3.1} it holds only if $b=-g_s< 0$ which violates that $b\geq 0$\footnote{If $g_s=0$, then $w_b=c_s$ and $b_s=0$ which means that the supplier earns no positive profit.}. Therefore, a buyback contract does not coordinate the newsvendor with price-dependent demand.
+But comparing with \autoref{eq:3.1} it holds only if $b=-g_s< 0$ which violates that $b\geq 0$\footnote{If $g_s=0$, then $w_b=c_s$ and $b_s=0$ which means that the supplier earns no positive profit.\label{ft:4}}. Therefore, a buyback contract does not coordinate the newsvendor with price-dependent demand.
 
 The buyback contract fails to coordinate in this setting because the parameters of the coordinating contracts depend on the price: from \autoref{eq:2.5} and \autoref{eq:2.6}, the coordinating parameters are
 \begin{align*}
@@ -98,16 +98,47 @@ Coordination require
     \begin{equation*}
         \pi_r(q,p,b(p),w_b(p))=\lambda\Pi(q,p).
     \end{equation*}
-    \item Consider either $g_r>0$ or $g_s>0$.
+    \item Consider at least one of $g_r$ or $g_s$ is larger than $0$. From \autoref{eq:3.4} coordination is achieved only if $\phi=g_r/g$. In this contract both firms \textbf{may} enjoy a positive profit\footnote{Only if $g_r,g_s>0$ then both firms will earn positive profits.}, which contrasts with the single coordination outcome of the buyback contract shown in \autoref{ft:4}. The difficulty with coordination occurs because the coordinating parameters generally depend on the retail price
+    \begin{align*}
+        \phi&=\lambda+\frac{\lambda g-g_r}{p-v},\\
+        w_r&=\lambda(c-v)-c_r+\phi v.
+    \end{align*}
+    The \textbf{dependence} on the retail price is eliminated only in the special case $\phi=\lambda=g_r/g$.
 \end{itemize}
 
+Coordination for all profit allocations is restored even in this case if, like with the buyback contract, the parameters of the revenue-sharing contract are made contingent on the retailer's price. In that case revenue sharing is again equivalent to the price-discount contract: price discounts are contingent buybacks and contingent buybacks are equivalent to contingent revenue sharing.
 
+Consider the final \textbf{quantity discount} contract. The retailer's profit function is 
+\begin{equation*}
+    \pi_r(q,w_d(q),p)=(p-v+g_r)S(q,p)-(w_d(q)+c_r-v)q-g_r\mu.
+\end{equation*}
+If $g_s=0$, then 
+\begin{equation*}
+    \frac{\pi_r(q,w_d(q),p)}{\partial p}=\frac{\partial S(q,p)}{\partial p}+(p-v+g_r)S(q,p)=\frac{\partial \Pi(q,p)}{\partial p}
+\end{equation*}
+and so $\pq$ is optimal for the retailer. On the otehr hand, if $g_s>0$, then the retailer's pricing decision needs to be distorted for coordination, which the quantity discount does not do.
 
+Assuming $g_s=0$, we still need to check if the quantity is coordinated. Assume that the optimal price is chosen, we have 
+\begin{equation*}
+    w_d(q)=((1-\lambda)(p^o-v+g)-g_s)\frac{S(q,p^o)}{q}+\lambda(c-v)-c_r+v,
+\end{equation*}
+where $p^o=\pq$. It follows that 
+\begin{align*}
+    \pi_r(q,w_d(q),p)=(p-v+g_r)S(q,p)-\lambda(c-v)q-g_r\mu-((1-\lambda)(p^o-v+g)-g_s)S(q,p^o)
+\end{align*}
+and so $p^o$ is optimal for the retailer\footnote{Notice that $g_s=0$}, 
+\begin{equation*}
+    \frac{\pi_r(q,w_d(q),p)}{\partial p}=\frac{\partial\Pi(q,p)}{\partial p}.
+\end{equation*}
+Given $p^o$ is chosen,
+\begin{align*}
+    \pi_r(q,w_d(q),p^o)&=\lambda(p^o-v+g)S(q,p^o)-\lambda(c-v)q-g_r\mu\\
+    &=(\Pi(q,p^o)+g\mu)-g_r\mu
+\end{align*}
+and so $q^o$ is optimal for the retailer and the supplier. Coordination occurs becasue the retailer's pricing decision is not distorted, and the retailer's quantity decision is adjusted \textbf{contingent} that $p^o$ is chosen.
 
-
-
-
-
+\subsection{Discussion}
+There are surely many situations in which a retailer has some control over his pricing. However, \textbf{incentives to coordinate the retailer's quantity decision may distort the retailer's price decision}. This occurs with the \textbf{buyback}, \textbf{quantity-flexibility} and the \textbf{sales-rebate} contracts. Since the \textbf{quantity discount} leaves all revenue with the retailer, it does not create such a distortion, which is an asset when the retailer's pricing decision should not be distorted, i.e., when $g_s=0$. \textbf{Revenue sharing} does not distort the retailer's pricing decision when $g_r=g_s=0$. In those situations the set of revenue-sharing contracts to coordinate the quantity decision with a fixed price continue to coordinate the quantity decision with a variable price. However, when there are goodwill costs, then the coordinating revenue-sharing parameters generally depend on the retail price. The dependence is removed with only a single revenue-sharing contract; hence coordination is only achieved with a single profit allocation\footnote{$\phi=g_r/g$.}. Coordination is restored with arbitrary profit allocation by making the parameters contingent on the retail price chosen, e.g., a menu of revenue-sharing contracts is offered that depend on the price selected. This technique also applies to the buyback contract: the \textbf{price contingent buyback} contract, which is also called a price-discount-sharing contract, coordinates the price-setting newsvendor. In fact, just as buybacks and revenue sharing are equivalent with a fixed retail price, the \textbf{price contingent buybac} and \textbf{revenue sharing} are equivalent when there are no goodwill costs. When there are goodwill costs then the \textbf{price contingent buy back} is equivalent to the \textbf{price contingen revenue-sharing}  contract.
 
 
 
