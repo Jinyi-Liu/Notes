@@ -30,7 +30,7 @@ Let $\pq$ be the supply chain optimal price for a given $q$. The necessary condi
     Either not satisfy the first-order condition or fail to coordinate the quantity decision.
 \end{note}
 
-Consider the quantity-flexibility contract. The retailer's profit function is 
+Consider the \textbf{quantity-flexibility} contract. The retailer's profit function is 
 \begin{align*}
     \pi_r(q,p,w_q,\delta)=&(p-v+g_r)S(q,p)-(w_q+c_r-v)q\\
     +&(w_q+c_r-v)\int_{(1-\delta)q}^q F(y|p)dy-\mu g_r
@@ -43,3 +43,85 @@ For price coordination the first-order condition must hold,
 =& 0\label{eq:3.2}
 \end{align}
 The second term in \autoref{eq:3.2} is no smaller than the second term in \autoref{eq:3.1}\footnote{The assumption of $\partial F(q|p)/\partial p>0.$}, so the above holds only if the third term is nonpositive. 
+But the third term is nonnegative as $w_q+c_r-v\geq 0$, so with a coordinating $w_q$, the coordination of price can only occur if $g_s=0$ and either $w_q=v-c_r$ or $\delta=0$. \textbf{Neither} is desirable. With $w_q=v-c_r$, then supplier has $w_q<c_s$\footnote{Why? An assumption?} which is not acceptable. With $\delta=0$ the contract degenerates to just a wholesale-price contract, so the retailer's quantity action is not optimal. Hence, the quantity-flexibility contract does not coordinate the newsvendor with price-dependent demand.
+
+The \textbf{sales-rebate} contract does not fare better:
+\begin{align*}
+    \frac{\partial\pi_r(q,\pq,w_s,r,t)}{\partial p}=&\spq+(\pq-v+g_r)\frac{\partial\spq}{\partial p}\\
+    &-r\int_t^q\frac{\partial F(y|\pq)}{\partial p}dy
+\end{align*}
+Since the last term is negative when $r>0$ and $t<q$, we know that the retailer prices below the optimal price\footnote{The above derivative is negative. Why it means that the retailer prices below the optimal price?}. Coordination might be achieved if there is something to induce the retailer to a higher price.
+
+Now consider a \textbf{buyback} contract. The retailer's profit function is 
+\begin{equation*}
+    \pi_r(q,p,w_b,b)=(p-v+g_r-b)S(q,p)-(w_b-b+c_r-v)q-g_r\mu.
+\end{equation*}
+For coordination we must have the first-order condition:
+\begin{equation}\label{eq:3.3}
+    \frac{\partial\pi_r(q,\pq,w_b,r,t)}{\partial p}=\spq+(\pq-v+g_r-b)\frac{\partial\spq}{\partial p}=0.
+\end{equation}
+But comparing with \autoref{eq:3.1} it holds only if $b=-g_s< 0$ which violates that $b\geq 0$\footnote{If $g_s=0$, then $w_b=c_s$ and $b_s=0$ which means that the supplier earns no positive profit.}. Therefore, a buyback contract does not coordinate the newsvendor with price-dependent demand.
+
+The buyback contract fails to coordinate in this setting because the parameters of the coordinating contracts depend on the price: from \autoref{eq:2.5} and \autoref{eq:2.6}, the coordinating parameters are
+\begin{align*}
+    b&=(1-\lambda)(p-v+g)-g_s\\
+    w_b&=\lambda c_s+(1-\lambda)(p+g-c_r)-g_s.
+\end{align*}
+For a fixed $\lambda$, the coordianting buyback rate and wholesale price are linear in $p$. Hence, the buyback contract coordiantes the newsvendor with price-dependent demand if $b$ and $w_b$ are made \textbf{contingent} on the retail price chosen, or if $b$ and $w_b$ are chosen \textbf{after} the retailer commits to a price (but before the retailer chooses $q$). This is the \textbf{price-discount-sharing} contract\footnote{Bernstein and Federgruen (2000)}, which is called a "bill back" in practice. The retailer gets a lower wholesale price if the retailer reduces his price, i.e., the supplier shares in the cost of a price discount with the retailer. Then we have the retailer profit function:
+\begin{align*}
+    \pi_r(q,p,w_b,b)&=\lambda(p-v+g)S(q,p)-\lambda(c-v)q-g_r\mu\\
+    &=\lambda(\Pi(q,p)+g\mu)-g_r\mu
+\end{align*}
+Hence, for the retailer as well ass the supplier, $\{q^o,p^o\}$ is optimal for $\lambda\in[0,1]$.
+
+Now consider the \textbf{revenue-sharing} contract. The retailer's profit is 
+\begin{equation*}
+    \pi_r(q,p,w_r,\phi)=(\phi(p-v)+g_r)S(q,p)-(w_r+c_r-\phi v)q-g_r\mu.
+\end{equation*}
+Coordination require
+\begin{equation}\label{eq:3.4}
+    \frac{\pi_r(q,\pq,w_r,\phi)}{\partial p}=\spq+(\pq-v+g_r/\phi)\frac{\partial\spq}{\partial p}=0.
+\end{equation}
+
+\begin{itemize}
+    \item Consider $g_r=g_s=0$. In this situation,
+    \begin{equation*}
+        \frac{\partial\pi_r(q,p,w_r,\phi)}{\partial p}=\frac{\partial\Pi(q,p)}{\partial p}
+    \end{equation*}
+    with \textbf{any} revenue-sharing contract. Thus, the retailer chooses $\pq$ no matter which revenue-sharing contract is chosen. Now revenue sharing is able to coordinate the retailer's quantity decision with precisely the same set of contracts used when the retailer prices is fixed. 
+
+    Recall that with the \textit{fixed price} newsvendor \textbf{revenue sharing} and \textbf{buybacks} are equivalent. Here, the contracts produce different outcomes because with a buyback the retailer's share of revenue $(1-b/p)$ depends on the price, whereas with revenue sharing it is independent of the price, by definition\footnote{The above partial derivative}. However, the \textbf{price contingent buyback} contract (\textbf{price-discount} contract) is equivalent to revenue sharing: if $g_r=g_s=0$, the coordinating revenue-sharing contract yield 
+    \begin{equation*}
+        \pi_r(q,p,w_r,\phi)=\lambda\Pi(q,p)
+    \end{equation*}
+    from \autoref{eq:2.10}. And the price contingent buyback contract yield the same profit for any quantity and price from \autoref{eq:2.7},
+    \begin{equation*}
+        \pi_r(q,p,b(p),w_b(p))=\lambda\Pi(q,p).
+    \end{equation*}
+    \item Consider either $g_r>0$ or $g_s>0$.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
