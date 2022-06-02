@@ -1,5 +1,45 @@
 \numberwithin{equation}{section}
-
+\newcommand{\spq}{S(q,p^o(q))}
+\newcommand{\pq}{p^o(q)}
 \thispagestyle{empty}
-\section{Coordinating the newsvendor with price-dependent demand}
-test
+\section{Coordinating the newsvendor with \textit{price-dependent} demand}
+
+
+\subsection{Model and analysis}
+Now the retailer chooses his price in addition to his order quantity. Let $F(q|p)$ be the distribution function of demand, where $p$ is the retail price. Assume $\frac{\partial F(q|p)}{\partial p}>0$. To obtain initial insights, assume the retailer sets his \textbf{price} \textit{at the same time as} his \textbf{stocking decision} and the price is \textbf{fixed} throughout the season.
+\begin{note}
+    van Mieghem and Dada (1999). A hybrid model. The retailer chooses $q$, then observes a demand signal and then chooses price.
+\end{note}
+
+The integrated channel's profit is 
+\begin{equation*}
+    \Pi(q,p)=(p-v+g)S(q,p)-(c-v)q-g\mu
+\end{equation*}
+where $S(q,p)$ is expected sales given the stocking quantity $q$ and the price $p$, and similarly, we have
+\begin{equation*}
+    S(q,p)=q-\int_0^q F(y|p)dy
+\end{equation*}
+\begin{note}
+    The integrated channel profit function need not be concave nor unimodal (Petruzzi \& Dada 1999)
+\end{note}
+Let $\pq$ be the supply chain optimal price for a given $q$. The necessary condition for coordination is
+\begin{equation}\label{eq:3.1}
+    \frac{\partial\Pi(q,p^o(q))}{\partial p}=S(q,p^o(q))+(p^o(q)-v+g)\frac{\partial S(q,p^o(q))}{\partial p}=0.
+\end{equation}
+\begin{note}
+    Either not satisfy the first-order condition or fail to coordinate the quantity decision.
+\end{note}
+
+Consider the quantity-flexibility contract. The retailer's profit function is 
+\begin{align*}
+    \pi_r(q,p,w_q,\delta)=&(p-v+g_r)S(q,p)-(w_q+c_r-v)q\\
+    +&(w_q+c_r-v)\int_{(1-\delta)q}^q F(y|p)dy-\mu g_r
+\end{align*}
+For price coordination the first-order condition must hold,
+
+\begin{align}
+\frac{\partial \pi_{\mathrm{r}}\left(q, p^{\mathrm{o}}(q), w_{q}, \delta\right)}{\partial p}=& S\left(q, p^{\mathrm{o}}(q)\right)+\left(p^{\mathrm{o}}(q)-v+g_{\mathrm{r}}\right) \frac{\partial S\left(q, p^{\mathrm{o}}(q)\right)}{\partial p} \nonumber\\
+&+\left(w_{q}+c_{\mathrm{r}}-v\right) \int_{(1-\delta) q}^{q} \frac{\partial F\left(y \mid p^{\mathrm{o}}(q)\right)}{\partial p} \mathrm{~d} y \nonumber\\
+=& 0\label{eq:3.2}
+\end{align}
+The second term in \autoref{eq:3.2} is no smaller than the second term in \autoref{eq:3.1}\footnote{The assumption of $\partial F(q|p)/\partial p>0.$}, so the above holds only if the third term is nonpositive. 
