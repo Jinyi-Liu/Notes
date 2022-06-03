@@ -1,2 +1,79 @@
 \thispagestyle{empty}
 \section{Coordinating the newsvendor with effort-dependent demand}
+\begin{note}
+    Netessine and Rudi (2000a)
+    Wang and Gerchak 2001
+    Gilbert and Cvsa 2000
+\end{note}
+Only the quantity-discount contract can coordinate a retailer that chooses quantity, price and effort.
+
+\subsection{Model and analysis}
+\begin{itemize}
+    \item Suppose a single effort level $e$, summarizes the retailer's activities and let $g(e)$ be the retailer's cost of exerting effort level $e$, where $g(0)=0$, $g^\prime(e)>0$ and $g^{\prime\prime}(e)>0$.
+    \item  Assume there are no goodwill costs, $g_r=g_s=0$, $v=0$ and $c_r=0$. Let $F(q|e)$ be the distribution of demand given the effort level $e$, where demand is \textbf{stochastically increasing in effort}, i.e., $\partial F(q|e)/\partial e<0$.
+    \item Suppose the retailer chooses his effort level \textbf{at the same time as} his order quantity. 
+    \item Assume the supplier \textbf{cannot verify} the retailer's effort level, which implies the retailer cannot sign a contract binding the retailer to choose a particular effort level.
+\end{itemize}
+
+Then we have 
+\begin{equation*}
+    \Pi(q,e)=p S(q,e)-c q-g(e),
+\end{equation*}
+where 
+\begin{equation*}
+    S(q,e)=q-\int_0^q F(y|e)dy.
+\end{equation*}
+\textbf{The integrated channel’s profit function need not be concave nor unimodal.}
+ Assume that the integrated channel solution is well behaved, i.e., $\Pi(q,e)$ is unimodal and maximized with finite arguments. $q^o$ and $e^o$ are the optimal solutions.
+
+ $e^o(q)$ maximizes the supplyu chain's revenue net effort cost only if 
+ \begin{equation}
+     \frac{\partial\Pi(q,e^o(q))}{\partial e}=p\frac{\partial S(q,e^o(q))}{\partial e}-g^\prime(e^o(q))=0.
+ \end{equation}
+ With a \textbf{buyback contract} the retailer's profit function is
+ $$
+ \pi_{\mathrm{r}}\left(q, e, w_{\mathrm{b}}, b\right)=(p-b) S(q, e)-\left(w_{\mathrm{b}}-b\right) q-g(e)
+ $$
+ For all $b>0$ it holds that
+ \begin{equation}
+    \frac{\partial \pi_{\mathrm{r}}\left(q, e, w_{\mathrm{b}}, b\right)}{\partial e}<\frac{\partial \Pi(q, e)}{\partial e}
+ \end{equation}
+ Thus, $e^{\mathrm{o}}$ cannot be the retailer's optimal effort level when $b>0$. But $b>0$ is required to coordinate the retailer's order quantity\footnote{\autoref{eq:2.5} and $\lambda\in(0,1)$}, so it follows that the buyback contract cannot coordinate in this setting.
+
+With a \textbf{quantity-flexibility} contract, we have 
+$$
+\pi_{\mathrm{r}}\left(q, e, w_{\mathrm{q}}, \delta\right)=p S(q, e)-w_{\mathrm{q}}\left(q-\int_{(1-\delta) q}^{q} F(y \mid e) \mathrm{d} y\right)-g(e) .
+$$
+For all $\delta>0$ (which is required to coordinate the retailer's quantity decision)
+$$
+\frac{\partial \pi_{\mathrm{r}}\left(q, e, w_{\mathrm{q}}, \delta\right)}{\partial e}<\frac{\partial \Pi(q, e)}{\partial e} .
+$$
+As a result, the retailer chooses a \textbf{lower effort} than optimal\footnote{Because the left-hand side will first approach $0$, i.e., the retailer will choose effort level lower than $e^o(q)$.}, i.e., the quantity-flexibility contract also does not coordinate the supply chain in this setting.
+
+Also, it can be shown that \textbf{revenue-sharing} contract with $\phi<1$ has
+$$\frac{\partial \pi_{\mathrm{r}}\left(q, e, w_{\mathrm{r}}, \phi\right)}{\partial e}<\frac{\partial \Pi(q, e)}{\partial e} .$$ The \textbf{sales-rebate} contract with $r>0$ and $q>t$ has
+$$\frac{\partial \pi_{\mathrm{r}}\left(q, e, w_{\mathrm{s}}, r,t\right)}{\partial e}>\frac{\partial \Pi(q, e)}{\partial e},$$
+which means the retailer exerts too much effort.
+
+Consider \textbf{quantity discount} contract\footnote{The quantity discount should let the retailer retain the revenues but charge a marginal cost based on expected revenue conditional on the optimal effort.}. 
+Suppose $T_d(q)=w_d(q)q$, where 
+\begin{equation*}
+    w_d(q)=(1-\lambda)p\left(\frac{S(q,e^o)}{q}\right)+\lambda c+(1-\lambda)\frac{g(e^o)}{q})
+\end{equation*}
+and $\lambda\in[0,1]$. 
+
+Now the retailer's profit function is 
+\begin{equation*}
+    \pi_r(q,e)=p S(q,e)-(1-\lambda)p S(q,e^o)-\lambda c q-g(e)+(1-\lambda)g(e^o)
+\end{equation*}
+Given the optimal effort $e^o$, the retailer's profit function is 
+$$\pi_r(q,e^o)=\lambda p S(q,e^o)-\lambda cq-\lambda g(e^o)=\lambda\Pi(q,e^o),$$
+and so the retailer's optimal order quantity is $q^o$, any allocation of profit is feasible and the supplier's optimal production is $q^o$.
+
+Also, if the demand is dependent on price and effort, let 
+\begin{equation*}
+    w_d(q)=(1-\lambda)p^o \left(\frac{S(q,e^o)}{q}\right)+\lambda c+(1-\lambda)\frac{g(e^o)}{q}.
+\end{equation*}
+Again, the retailer retains all revenue and so optimizes price and effort\footnote{The logic.}. Futhermore, the quantity decision is not distorted because the quantity-discount schedule is contingent on the optimal price and effort and not on the chosen price and effort. 
+
+
