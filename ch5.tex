@@ -8,7 +8,7 @@ Set $c_r=g_r=g_s=v=0$, increase the number of retailers to $n>1$. $D$ the total 
 \end{equation*}
 where $q=\sum_{i=1}^n q_i$ and $q_{-i}=q-q_i$. 
 Given the proportional allocation rule, the integrated supply chain faces a single newsvendor problem. Hence we have 
-\begin{equation}
+\begin{equation}\label{eq:5.1}
     F(q^o)=\frac{p-c}{p}.
 \end{equation}
 Retailer $i$'s profit function with a buyback contract is 
@@ -52,6 +52,120 @@ Assuming $n>1$, we have
 \begin{equation*}
     \frac{\partial\pi_s(q^o,\hat{w}(q^o))}{\partial q}=-\frac{q^o p f(q^o)}{n}<0.
 \end{equation*}
+\begin{note}
+    Checked but don't sure.
+\end{note}
+Hence, the supplier prefers to sell less than $q^o$ and charges a higher wholesale price when $n>1$. 
+
+For supplier, a coordinating buyback contract ($w_b(b)$) may exceed the profit with the optimal wholesale-price contract. Since the buybakc rate provides an incentive to the retailers to increase their order quantity, it must be that $w_b(b)>\hat{w}(q^o)$. From \autoref{eq:5.1} and \autoref{eq:5.3} 
+\begin{equation*}
+    w_b(b)=p-(p-b)\left[\frac{1}{n}\left(\frac{p-c}{p}\right)+\left(\frac{n-1}{n}\right)\left(\frac{1}{q^o}\int_0^{q^o}F(x)dx\right)\right].
+\end{equation*}
+Given that $q_{i}^{*}=q^{*} / n$, retailer $i$ 's profit with a coordinating buyback contract is
+$$
+\begin{aligned}
+\pi_{i}\left(q_{i}^{*}, q_{-i}^{*}\right) &=(p-w(b)) q^{\mathrm{o}} / n-(p-b)\left(\frac{1}{n}\right) \int_{0}^{q^{\circ}} F(x) \mathrm{d} x \\
+&=\left(\frac{p-b}{p n^{2}}\right) q^{\mathrm{o}}\left[p-c-\frac{p}{q^{\mathrm{o}}} \int_{0}^{q^{\circ}} F(x) \mathrm{d} x\right] \\
+&=\left(\frac{p-b}{p n^{2}}\right) \Pi\left(q^{\mathrm{o}}\right)
+\end{aligned}
+$$
+The supplier's profit with the coordinating contract is
+$$
+\begin{aligned}
+\pi_{\mathrm{s}}\left(q^{\mathrm{o}}, w_{\mathrm{b}}(b), b\right) &=\Pi\left(q^{\mathrm{o}}\right)-n \pi_{i}\left(q_{i}^{*}, q_{-i}^{*}\right) \\
+&=\left(\frac{p(n-1)+b}{p n}\right) \Pi\left(q^{\mathrm{o}}\right)
+\end{aligned}
+$$
+When $b=p$, the supplier extracts all supplier chain profit and certainly earns more than in the wholesale-price contract since in which it sells less than $q^o$. Also, we have
+\begin{equation*}
+    \frac{\pi_s(q^o,w_b(0),0)}{\Pi(q^o)}=\frac{n-1}{n}.
+\end{equation*}
+Hence, as $n$ increases the supplier's potential gain decreases from using a coordinating buyback contract rather than her optimal wholesale-price contract.
+
+\subsection{Competing newsvendor with market-clearing prices}
+In this model, the market price depends on the realization of demand and the amount of inventory purchased.
+
+Suppose industry demand can take on high or low state. $q$ the total order quantity. We have the market-clearing prices
+\begin{align*}
+    p_l(q)&=(1-q)^+\\
+    p_h(q)&=\left(1-\frac{q}{\theta}\right)^+
+\end{align*}
+for $\theta>1$. Suppose either demand is equally likely.
+
+There is a continuum of retailers on $[0,1]$. Retailers must order inventory from a single supplier \textbf{before} the realization of the demand is observed. \textbf{After} demand is observed the market-clearing price is determined. \textbf{Perfect competition is assumed.} Leftover inventory has no salvage value and the supplier's production cost is zero. 
+
+To set a benchmark, consider a single monopolist. We have the optimal profit
+$$\Pi^o=\frac{1}{2}p_1l(
+\frac{1}{2})\frac{1}{2}+\frac{1}{2}p_h(\frac{\theta}{2})\frac{\theta}{2}=\frac{1+\theta}{8}.$$
+
+Now consider the case that the supplier sells to the perfectly competitive retailers with a wholesale-price contract. The expected profit is 
+\begin{equation*}
+    \frac{1}{2} p_{l}(q) q+\frac{1}{2} p_{\mathrm{h}}(q) q-w q= \begin{cases}\frac{1}{2} q(2-q-q / \theta)-w q & q \leq 1 \\ \frac{1}{2} q(1-q / \theta)-w q & q>1\end{cases}.   
+\end{equation*}
+Let $q_1(w)$ be the quantity that sets the above profit to zero when $q\leq 1$, which is the equilibrium outcome due to perfectly competition:
+$$q_1(w)=\frac{2\theta}{1+\theta}(1-w),$$
+which is hold if $w\geq (1/2)-1/(2\theta)$. Consider $q_2(w)$ when $q>1$,
+$$q_2(w)=\theta(1-2w),$$
+which is hold if $w<(1/2)-1/(2\theta)$.
+
+Then we have the supplier's profit:
+\begin{equation*}
+    \pi_s(w)=\begin{cases}
+        q_1(w)w & w\geq (1/2)-1/(2\theta)\\
+        q_2(w)w&otherwise
+    \end{cases}
+\end{equation*}
+Let $w^{*}(\theta)$ be the supplier's optimal wholesale price:
+$$
+w^{*}(\theta)= \begin{cases}\frac{1}{2} & \theta \leq 3 \\ \frac{1}{4} & \text {otherwise }\end{cases}
+$$
+and
+$$
+\pi_{\mathrm{s}}\left(w^{*}(\theta)\right)= \begin{cases}\frac{\theta}{2(1+\theta)} & \theta \leq 3 \\ \frac{1}{8} \theta & \text {otherwise }\end{cases}
+$$
+Then we have the reatilers' order. When $\theta \leq 3$ the retailers order
+$$
+q_{1}\left(w^{*}(\theta)\right)=\frac{\theta}{1+\theta}
+$$
+and the market-clearing prices are
+$$
+p_{l}\left(q_{1}\left(w^{*}(\theta)\right)\right)=\frac{1}{1+\theta}, \quad p_{h}\left(q_{1}\left(w^{*}(\theta)\right)\right)=\frac{\theta}{1+\theta}
+$$
+When $\theta>3$ the retailers order
+$$
+q_{2}\left(w^{*}(\theta)\right)=\frac{\theta}{2}
+$$
+and the market-clearing prices are
+$$
+p_{l}\left(q_{2}\left(w^{*}(\theta)\right)\right)=0, \quad p_{h}\left(q_{2}\left(w^{*}(\theta)\right)\right)=\frac{1}{2}
+$$
+
+No matter the value of $\theta$, $\pi_s(w^*(\theta))<\Pi^o$, so the supplier does not capture the maximum possible profit with a wholesale-price contract. In either case the problem is that competition leads the retailers to sell too much in the low demand state\footnote{$\theta> 1$, $p_l>\frac{1}{2}$ in either case.}. The monopolist does not sell all of her inventory in the low-demand state, but the perfectly competitive retailers cannot be so restrained.
+\newcommand{\op}{\overline{p}}
+
+To earn a higher profit the supplier must devise a mechanism to prevent
+the low-demand state market-clearing price from falling below 1/2. Deneckere et al. (1997) propose the supplier implements resale price maintenance: the retailers may not sell below a stipulated price. Let $\op$ be that price. When $\op$ is above the market-clearing price the retailers have unsold inventory, so demand is allocated among the retailers\footnote{Why?}. Assume demand is allocated so that each retailer sells a constant fraction of his order quantity, i.e., proportional allocation.
+
+Given the optimal market-clearing price is always 1/2, the search for the
+optimal resale price maintenance contract should begin with $\op=1/2$. Assume the retailers' total order quantity equals $\theta/2$, i.e.,
+\begin{equation}\label{eq:5.4}
+    \int_0^1 q(t)dt=\frac{\theta}{2}.
+\end{equation}
+Hence, the market-clearing price in either demand state is $1/2$. Evaluate the $t$-th retailer's expected profit:
+\begin{equation*}
+    \pi_r(t)=-q(t)w+\frac{1}{2}\left(\frac{1/2}{\theta/2}q(t)\right)\op+\frac{1}{2}q(t)\op=q(t)\left(\frac{1+\theta}{4\theta}-w\right).
+\end{equation*}
+So the supplier can charge 
+$$\overline{w}=\frac{1+\theta}{4\theta}.$$
+Now show that the retailers indeed order $\theta/2$ under $\overline{w}$. 
+Say the retailers order $1 / 2<q<\theta / 2$\footnote{Why?}, so the $t$-th retailer's expected profit is
+$$
+-q(t) w+\frac{1}{2}\left(\frac{1 / 2}{q} q(t)\right) \bar{p}+\frac{1}{2} q(t)\left(1-\frac{q}{\theta}\right) .
+$$
+The above is decreasing in the relevant interval and equals 0 when the wholesale price is $\bar{w}$. So with the $(\bar{p}, \bar{w})$ resale price maintenance contract the retailers order $q=\theta / 2$, the optimal quantity is sold in either state and the retailers' expected profit is zero. Hence, the supplier earns $\Pi^{o}$ with that contract.
+
+
+
 
 
 
