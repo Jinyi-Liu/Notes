@@ -144,7 +144,7 @@ No matter the value of $\theta$, $\pi_s(w^*(\theta))<\Pi^o$, so the supplier doe
 \newcommand{\op}{\overline{p}}
 
 To earn a higher profit the supplier must devise a mechanism to prevent
-the low-demand state market-clearing price from falling below 1/2. Deneckere et al. (1997) propose the supplier implements resale price maintenance: the retailers may not sell below a stipulated price. Let $\op$ be that price. When $\op$ is above the market-clearing price the retailers have unsold inventory, so demand is allocated among the retailers\footnote{Why?}. Assume demand is allocated so that each retailer sells a constant fraction of his order quantity, i.e., proportional allocation.
+the low-demand state market-clearing price from falling below 1/2. Deneckere et al. (1997) propose the supplier implements resale price maintenance: the retailers \textbf{may not sell below a stipulated price}. Let $\op$ be that price. When $\op$ is above the market-clearing price the retailers have unsold inventory, so demand is allocated among the retailers\footnote{Why?}. Assume demand is allocated so that each retailer sells a constant fraction of his order quantity, i.e., proportional allocation.
 
 Given the optimal market-clearing price is always 1/2, the search for the
 optimal resale price maintenance contract should begin with $\op=1/2$. Assume the retailers' total order quantity equals $\theta/2$, i.e.,
@@ -164,8 +164,11 @@ $$
 $$
 The above is decreasing in the relevant interval and equals 0 when the wholesale price is $\bar{w}$. So with the $(\bar{p}, \bar{w})$ resale price maintenance contract the retailers order $q=\theta / 2$, the optimal quantity is sold in either state and the retailers' expected profit is zero. Hence, the supplier earns $\Pi^{o}$ with that contract.
 
-
-
+Resale price maintenance prevents destructive competition in the low demand state, but there is another approach. Suppose the supplier offers a buyback contract with $b=1/2$ which makes the price cannot fall below $1/2$. Then the retailers' profit is 
+\begin{equation*}
+    \frac{1}{2}\left(p_l(1/2)(1/2)+b(q-1/2)\right)+\frac{1}{2}(p_h(q)q)-qw=q\left(\frac{3}{4}-w-\frac{q}{2\theta}\right),
+\end{equation*} 
+assuming $1/2<q<\theta/2$. From the above we know that the retailers earn a zero profit with $q=\theta/2$ when $w=1/2$, i.e., the supplier maximizes the system's profit.  
 
 
 
