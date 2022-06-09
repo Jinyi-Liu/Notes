@@ -13,7 +13,7 @@ Begin with period $2$. Let $\Omega_2(q_2\mid q_1,\xi)$ be the supply chain's exp
 \begin{equation}
     \Omega(q_2\mid q_1,\xi)=p S(q_2\mid \xi)-c_2 q_2+c_2 q_1.
 \end{equation}
-Let $q_2(q_1,\xi)$ be the supply chain's optimal $q_2$ given $g_1$ and $\xi$. Let $q_2(\xi)=q_2(0,\xi)$, i.e., $q_2(\xi)$ is the optimal order if the retailer has no inventory at the start of period 2. Given $\Omega_2(q_2\mid q_1,\xi)$ is strictly concave in $q_2$,
+Let $q_2(q_1,\xi)$ be the supply chain's optimal $q_2$ given $q_1$ and $\xi$. Let $q_2(\xi)=q_2(0,\xi)$, i.e., $q_2(\xi)$ is the optimal order if the retailer has no inventory at the start of period 2. Given $\Omega_2(q_2\mid q_1,\xi)$ is strictly concave in $q_2$,
 \begin{equation}
     F(q_2(\xi)\mid\xi)=\frac{p-c_2}{p}.
 \end{equation}
@@ -37,15 +37,65 @@ With this contract we have
 \end{equation*}
 Thus, $q_2(q_1,\xi)$ is also the retailer's optimal order, i.e., the contract coordinates the retailer's \textbf{period 2 decision.}
 
-Now consider whether the supplier indeed fills the retailer's entire period 2 order. Let $x$ be the total inventory in the supply chain at the start of period 2 with $x\geq q_1$. Let $y$ be the inventory at the retailer after the supplier's delivery in period 2. Let $\Pi_2(y\mid x, q_1,\xi)$ be the supplier's profit, where $x\leq y\leq q_2$,
+Now consider whether the \textbf{supplier} indeed fills the retailer's entire period 2 order. Let $x$ be the total inventory in the supply chain at the start of period 2 with $x\geq q_1$. Let $y$ be the inventory at the retailer after the supplier's delivery in period 2. Let $\Pi_2(y\mid x, q_1,\xi)$ be the supplier's profit, where $x\leq y\leq q_2$,
 \begin{align*}
     \Pi_2(y\mid x,q_1,q_2,\xi)&=b S(y\mid\xi)-by+w_2(y-q_1)-(y-x)c_2\\
     &=(1-\lambda)(\Omega_2(y\mid q_1,\xi)-c_2 q_1)+c_2 x- w_2 q_1
 \end{align*}
-where the above follows from the contract terms, $w_2=\lambda c_2+b$\footnote{What is the meaning?}. 
+where the above follows from the contract terms, $w_2=\lambda c_2+b$. Given $q_2>x$, the supplier fills the order as long as $q_2\leq q_2(q_1,\xi)$. 
+
+In \textbf{period 2}, assuming a coordinating $\{w_2,b\}$ pair is chosen, the retailer's expected profit is\footnote{$-w_1 q_1+E\left[\pi_2(q_2\mid q_1,\xi)\right]$} 
+\begin{equation*}
+    \pi_1(q_1)=-(w_1-w_2+\lambda c_2)q_1+\lambda E\left[\Omega_2(q_2(q_1,\xi)\mid q_1,\xi)\right].
+\end{equation*}
+The supply chain's expected profit is 
+\begin{equation*}
+    \Omega_1(q_1)=-c_1 q_1+E\left[\Omega_2(q_2(q_1,\xi)\mid q_1,\xi)\right].
+\end{equation*}
+Choose $w_1$ so that 
+\begin{equation*}
+    w_1-w_2+\lambda c_2=\lambda c_1
+\end{equation*}
+because then
+\begin{equation*}
+    \pi_1(q_1)=\lambda \Omega_1(q_1),
+\end{equation*}
+i.e., the supply chain coordinates.
+Given $\Omega_1(q_1)$ is strictly concave, $q_1^o$ follows:
+\begin{align}
+     \frac{\partial\Omega_1(q_1^o)}{\partial q_1}&=-c_1+c_2(1-G(\xi(q_1^o)))+\int_0^{\xi(q_1^o)} p S^\prime(q_1^o\mid\xi) g(\xi)d \xi \nonumber\\
+    &=0 \label{eq:6.4}
+\end{align}
 
 
-
+Assuming the supplier fills the retailer's period 2 order, the supplier's period 2 profit is 
+$$
+\begin{aligned}
+\Pi_{2}\left(x, q_{1}, q_{2}, \xi\right) &=b S\left(q_{2} \mid \xi\right)-b q_{2}-\left(q_{2}-x\right)^{+} c_{2} \\
+&=(1-\lambda) \Omega_{2}\left(q_{2} \mid q_{1}, \xi\right)-w_{2} q_{2}+x c_{2}-\left(x-q_{2}\right)^{+} c_{2}
+\end{aligned}
+$$
+Given that $q_{2} \geq q_{1}$, the above is strictly increasing in $x$ for $x \leq q_{1}$. Hence, the supplier surely produces and delivers the retailer's period 1 order (as long as $\left.q_{1} \leq q_{1}^{o}\right)$. The supplier's period 1 expected profit is
+$$
+\begin{aligned}
+\Pi_{1}\left(x \mid q_{1}\right)=&-c_{1} x+E\left[\Pi_{2}\left(x, q_{1}, q_{2}, \xi\right)\right] \\
+=&-c_{1} x+E\left[(1-\lambda) \Omega_{2}\left(q_{2} \mid q_{1}, \xi\right)\right]-w_{2} q_{2}+x c_{2} \\
+&-c_{2} \int_{0}^{\xi(x)}\left(x-q_{2}(\xi)\right) g(\xi) \mathrm{d} \xi
+\end{aligned}
+$$
+It follows that
+$$
+\frac{\partial \Pi_{1}\left(x \mid q_{1}\right)}{\partial x}=-c_{1}+c_{2}(1-G(\xi(x)))
+$$
+and from \autoref{eq:6.4}
+$$
+\frac{\partial \Pi_{1}\left(q_{1}^{\mathrm{o}} \mid q_{1}^{\mathrm{o}}\right)}{\partial x}=-c_{1}+c_{2}\left(1-G\left(\xi\left(q_{1}^{\mathrm{o}}\right)\right)\right)<0 ,
+$$
+i.e., the supplier has no incentive to produce more than $q_1^o$ given the retailer orders $q_1^o$. Hence, with a coordinating $\{w_1,w_2,b\}$ contract the supplier produces just enough inventory to cover the retailer's period 1 order. 
+\begin{note}
+    $$w_2-c_2=w_1-(\lambda c_1+(1-\lambda)c_2)<w_1-c_1,$$
+    i.e. with a coordinating contract the supplier's margin in period 2 is actually \textbf{lower} than in period 1, which contrasts with intuition that the supplier should charge a higher margin for the later production since it offers the retailer an additional benefit over early production.
+\end{note}
 
 
 
