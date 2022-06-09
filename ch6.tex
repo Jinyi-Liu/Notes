@@ -1,2 +1,51 @@
 \newpage
 \section{Coordinating the newsvendor with demand updating}
+
+\subsection{Model and analysis}
+\begin{note}
+    Donohue 2020.
+\end{note}
+Let $\xi\geq 0$ be the realization of that demand signal. Let $G(\cdot)$ be its distribution function and $g(\cdot)$ its density function. Let $F(\cdot\mid\xi)$ be the distribution given signal and it's stochastically increasing in $\xi$. Let period $1$ be the time before the demand signal and $2$ the time between the demand signal and the start of the selling season. 
+
+Let $q_i$ be the retailer's total order as of period $i$\footnote{$q_1$ and $q_2-q_1$}. Let $c_i$ be the supplier's per unit production cost in period $i$, with $c_1<c_2$. The supplier charges $w_i$ in period $i$. Also, the supplier offers buyback for $b$ per unit unsold. Let $p$ be the retail price. Normalize to zero the salvage value of leftover inventory and any indirect costs due to lost sales. No holding cost on inventory carried from period 1 to period 2.
+
+Begin with period $2$. Let $\Omega_2(q_2\mid q_1,\xi)$ be the supply chain's expected revenue minus the period 2 production cost:
+\begin{equation}
+    \Omega(q_2\mid q_1,\xi)=p S(q_2\mid \xi)-c_2 q_2+c_2 q_1.
+\end{equation}
+Let $q_2(q_1,\xi)$ be the supply chain's optimal $q_2$ given $g_1$ and $\xi$. Let $q_2(\xi)=q_2(0,\xi)$, i.e., $q_2(\xi)$ is the optimal order if the retailer has no inventory at the start of period 2. Given $\Omega_2(q_2\mid q_1,\xi)$ is strictly concave in $q_2$,
+\begin{equation}
+    F(q_2(\xi)\mid\xi)=\frac{p-c_2}{p}.
+\end{equation}
+$q_2(\xi)$ is increasing in $\xi$\footnote{$F(\cdot\mid \xi)$ is SI in $\xi$ and RHS is unchanged in $\xi$.}, so it is possible to define the function $\xi(q_1)$ such that 
+\begin{equation}
+    F(q_1\mid\xi(q_1))=\frac{p-c_2}{p}.
+\end{equation}
+
+We have the retailer's period 2 expected profit
+\begin{equation*}
+    \pi_2(q_2\mid q_1,\xi)=(p-b)S(q_2\mid \xi)-(w_2-b)q_2+w_2 q_1,
+\end{equation*}
+where assume the supplier delivers the retailer's order in full. Choose $\lambda\in[0,1]$ and 
+\begin{align*}
+    p-b&=\lambda p\\
+    w_2-b&=\lambda c_2.
+\end{align*}
+With this contract we have 
+\begin{equation*}
+    \pi_2(q_2\mid q_1,\xi)=\lambda(\Omega_2(q_2\mid q_1,\xi)-c_2 q_1)+w_2 q_1.
+\end{equation*}
+Thus, $q_2(q_1,\xi)$ is also the retailer's optimal order, i.e., the contract coordinates the retailer's \textbf{period 2 decision.}
+
+Now consider whether the supplier indeed fills the retailer's entire period 2 order. Let $x$ be the total inventory in the supply chain at the start of period 2 with $x\geq q_1$. Let $y$ be the inventory at the retailer after the supplier's delivery in period 2. Let $\Pi_2(y\mid x, q_1,\xi)$ be the supplier's profit, where $x\leq y\leq q_2$,
+\begin{align*}
+    \Pi_2(y\mid x,q_1,q_2,\xi)&=b S(y\mid\xi)-by+w_2(y-q_1)-(y-x)c_2\\
+    &=(1-\lambda)(\Omega_2(y\mid q_1,\xi)-c_2 q_1)+c_2 x- w_2 q_1
+\end{align*}
+where the above follows from the contract terms, $w_2=\lambda c_2+b$\footnote{What is the meaning?}. 
+
+
+
+
+
+
