@@ -1,2 +1,64 @@
+\newpage
 \section{Coordination in the single-location base-stock model}
 This section considers a model with perpetual demand and many replenishment opportunities. Hence, the newsvendor model is not appropriate. 
+
+\subsection{Model and analysis}
+Suppose a supplier sells a single product to a single retailer. Let $L_r$ be the lead time to replenish an order from the retailer. The supplier has infinite capacity so the supplier keeps no inventory and the retailer's replenishment lead time is always $L_r$. Let $\mu_r=E[D_r]$ and $F_r,f_r$ of $D_r$ with $F_r$ strictly increasing and $F_r(0)=0$, which rules out the possibility that it is optimal to carry no inventory. 
+
+The retailer incurs inventory holding costs at rate $h_r>0$ per unit of inventory. $\beta_r,\beta_s$ the backorder penalty. 
+
+Let $I_r(y)$ be the retailer's expected inventory at time $t+L_r$ when the retailer's inventory level is $y$ at time $t$:
+\begin{equation}
+    I_r(y)=\int_0^y (y-x)f_r(x)dx=\int_0^y F_r(x)dx.
+\end{equation}
+Let $B_r(y)$ be the expected backorders
+\begin{equation}
+    B_r(y)=\int_y^\infty (x-y)f_r(x)dx=\mu_r-y+I_r(y).
+\end{equation}
+With a base-stock policy, the retailer continuously orders inventory and chooses $s_r$.
+
+Let $c_r(s_r)$ be the retailer's average cost per unit time when the retailer implements the base-stock policy $s_r$:
+\begin{align*}
+    c_r(s_r)&=h_r I_r(s_r)+\beta_r B_r(s_r)\\
+    &=\beta_r(\mu_r-s_r)+(h_r+\beta_r)I_r(s_r).
+\end{align*}
+The supplier's expected cost function is 
+\begin{align*}
+    c_s(s_r)&=\beta_s B_r(s_r)\\
+    &=\beta_s(\mu_r-s_r+I_r(s_r)).
+\end{align*}
+Let $c(s_r)$ be the supply chain's expected cost per unit time,
+\begin{align}
+    c(s_r)&=c_r(s_r)+c_s(s_r)\nonumber\\
+    &=\beta(\mu_r-s_r)+(h_r+\beta)I_r(s_r).\label{eq:7.3}
+\end{align}
+$c\left(s_{\mathrm{r}}\right)$ is strictly convex, so there is a unique supply chain optimal base-stock level, $s_{\mathrm{r}}^{\mathrm{o}}$. It satisfies the following critical ratio equation
+$$
+I_{\mathrm{r}}^{\prime}\left(s_{\mathrm{r}}^{\mathrm{o}}\right)=F_{\mathrm{r}}\left(s_{\mathrm{r}}^{\mathrm{o}}\right)=\frac{\beta}{h_{\mathrm{r}}+\beta}
+$$
+Let $s_{\mathrm{r}}^{*}$ be the retailer's optimal base-stock level. The retailer's cost function is also strictly convex, so $s_{\mathrm{r}}^{*}$ satisfies
+$$
+F_{\mathrm{r}}\left(s_{\mathrm{r}}^{*}\right)=\frac{\beta_{\mathrm{r}}}{h_{\mathrm{r}}+\beta_{\mathrm{r}}} .
+$$
+Given 	$\beta_r<\beta$, it follows from the above two expressions that $s_r^* < s_r^o$, i.e., the retailer chooses a base-stock level that is \textbf{less than optimal}.
+
+Suppose the supplier agree to transfer at every time $t$
+$$t_I I_r(y)+t_B B_r(y)$$
+where $y$ is the retailer's inventory level at time $t$ and $t_I$ and $t_I$ are constants. Further more, consider $\lambda\in(0,1]$\footnote{If $\lambda=0$, then any base-stock level is optimal},
+\begin{align*}
+    t_I&=(1-\lambda)h_r\\
+    t_B&=\beta_r-\lambda\beta
+\end{align*}
+The retailer's expected cost function is now 
+\begin{equation}\label{eq:7.5}
+    c_r(s_r)=(\beta_r-t_B)(\mu_r-s_r)+(h_r+\beta_r-t_I-t_B)I_r(s_r).
+\end{equation}
+It follows from \autoref{eq:7.3} and \autoref{eq:7.5} that
+\begin{equation}
+    c_r(s_r)=\lambda c(s_r)\label{eq:7.6}
+\end{equation}
+Hence, $s_r^o$ minimizes the retailer's cost and the contracts coordinate the supply chain. 
+
+
+
+
