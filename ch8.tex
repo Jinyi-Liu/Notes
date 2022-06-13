@@ -1,2 +1,71 @@
 \newpage
 \section{Coordination in the two-location base-stock model}
+\subsection{Model}
+Let $h_s$, $0<h_s<h_r$, be the supplier's per unit holding cost rate incurred with on-hand inventory. Let $D_s<0$ be demand during an interval of time with length $L_s$. 
+
+Both firms use base-stock policies to manage inventory.
+
+\subsection{Cost function}
+Let $c_i(s_r,s_s)$ be the average rate at which firm $i$ incurs costs at the retail level. 
+At time $t+L_s$, the retailer's inventory level is $s_r-\left(D_s-s_s\right)^+$. So
+\begin{equation*}
+    c_i(s_r,s_s)=F_s(s_s)c_i(s_r)+\int_{s_s}^\infty c_i(s_r+s_s-x)f_s(x)dx.
+\end{equation*}
+Let $I_r(s_r,s_s)$ and $B_r(s_r,s_s)$ be the retailer's average inventory and backorders given the base-stock levels:
+\begin{align*}
+    I_r(s_r,s_s)&=F_s(s_s)I_r(s_r)+\int_{s_s}^\infty I_r(s_r+s_s-x)f_s(x)dx\\
+    B_r(s_r,s_s)&=F_s(s_s)B_r(s_r)+\int_{s_s}^\infty B_r(s_r+s_s-x)f_s(x)dx\\
+\end{align*}
+Let $\pi_i(s_r,s_s)$ be firm $i$'s total average cost rate. We have 
+$$\pi_r(s_r,s_s)=c_r(s_r,s_s).$$
+Let $I_s(s_s)$ be the supplier's average inventory. Analogous to the retailer's functions, we have 
+$$I_s(y)=\int_0^y F_s(x)dx.$$
+The supplier's average cost is 
+$$\pi_s(s_r,s_s)=h_s I_s(s_s)+c_s(s_r,s_s).$$
+The supply chain's total cost is $\Pi(s_r,s_s)=\pi_r(s_r,s_s)+\pi_s(s_r,s_s)$.
+
+\subsection{Behavior in the decentralized game}
+Let $s_i(s_j)$ be an optimal base-stock level for firm $i$ given firm $j$'s strategy. 
+A Nash equilibrium $\{s_r^*,s_s^*\}$ is $s_r^*=s_r (s_s^*)$ and $s_s^*=s_s(s_r^*)$. It's unique and exists. But the penalty is positive. The uniqueness requires
+\begin{equation}
+    |s_i^\prime(s_j)|<1.
+\end{equation}
+
+\subsection{Coordiantion with linear transfer payments}
+Supply chain coordination in this setting is achieved when $\{s_r^o,s_s^o\}$ is a Nash equilibrium. 
+
+Suppose the supplier offers
+\begin{equation*}
+    t_I I_r(s_r,s_s)+t_B^r B_r(s_r,s_s)+t_B^s B_s(s_s),
+\end{equation*}
+where $t_I, t_B^r$ and $t_B^s$ are constants and $B_s(s_s)$ is the supplier's average backorder:
+\begin{equation*}
+    B_s(y)=\mu_s-y+I_s(y).
+\end{equation*}
+
+Given $\Pi\left(s_{\mathrm{r}}, s_{\mathrm{s}}\right)$ is continuous, any optimal policy with $s_{\mathrm{s}}>0$ must set the following two marginals to zero
+\begin{equation}
+    \frac{\partial \Pi\left(s_{\mathrm{r}}, s_{\mathrm{s}}\right)}{\partial s_{\mathrm{r}}}=F_{\mathrm{s}}\left(s_{\mathrm{s}}\right) c^{\prime}\left(s_{\mathrm{r}}\right)+\int_{s_{\mathrm{s}}}^{\infty} c^{\prime}\left(s_{\mathrm{r}}+s_{\mathrm{s}}-x\right) f_{\mathrm{s}}(x) \mathrm{d} x
+\end{equation}
+and
+\begin{equation}
+    \frac{\partial \Pi\left(s_{\mathrm{r}}, s_{\mathrm{s}}\right)}{\partial s_{\mathrm{s}}}=F_{\mathrm{s}}\left(s_{\mathrm{s}}\right) h_{\mathrm{s}}+\int_{s_{\mathrm{s}}}^{\infty} c^{\prime}\left(s_{\mathrm{r}}+s_{\mathrm{s}}-x\right) f_{\mathrm{s}}(x) \mathrm{d} x .
+\end{equation}
+Since $F_{\mathrm{s}}\left(s_{\mathrm{s}}\right)>0$, there is only one possible optimal policy with $s_{\mathrm{s}}>0,\left\{\tilde{s}_{\mathrm{r}}^{1}, \tilde{\mathrm{s}}_{\mathrm{s}}^{1}\right\}$, where $\tilde{s}_{\mathrm{r}}^{1}$ satisfies
+\begin{equation}\label{eq:8.4}
+    c^{\prime}\left(\tilde{s}_{\mathrm{r}}^{1}\right)=h_{\mathrm{s}},
+\end{equation}
+and $\tilde{s}_s^1$ satisfies $\partial\Pi(\tilde{s}_r^1,\tilde{s}_s^1)/\partial s_s=0$. \autoref{eq:8.4} simplifies 
+\begin{equation*}
+    F_r(\tilde{s}_r^1)=\frac{h_s+\beta}{h_r+\beta},
+\end{equation*}
+so $\tilde{s}_r^1$ exists and is unique. Also, $\Pi(\tilde{s}_r^1,s_s)$ is strictly convex in $s_s$. $\tilde{s}_s^1$ also exists and is unique.
+
+
+
+
+
+
+
+
+
