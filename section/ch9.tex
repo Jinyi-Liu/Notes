@@ -8,7 +8,8 @@ Suppose there is one supplier, one production manager and two retailers. The pro
     \item The production manager incurs cost $c(e)$, where $c(e)$ is strictly convex and increasing.
     \item Retailer $i$ observes $\alpha_i$, the realization of $A_i>0$. Each retailer submits an order to the supplier.
     \item The supplier allocates $q_i$ to retailer $i$ with $q_i$ not exceeding the order and $q_1+q_2\leq Q$.
-    \item Retailer $i$ earns $q_i p_i(q_i)$ where $p_i(q_i)=\alpha_i q_i^{-1/\eta}$ and $\eta>1$ is the constant demand elasticity. 
+    \item Retailer $i
+    $ earns $q_i p_i(q_i)$ where $p_i(q_i)=\alpha_i q_i^{-1/\eta}$ and $\eta>1$ is the constant demand elasticity. 
     \item Let $\theta$ be the realization of $Y$, $A=\left\{A_1,A_2\right\} $and $\alpha=\left\{\alpha_1,\alpha_2\right\}$.
 \end{itemize}
 
@@ -30,7 +31,7 @@ $$
 \Pi(e, A, Y)=E[\pi(A, Y e)]-c(e) .
 $$
 Profit is concave in $e$, so the unique optimal production effort level, $e^{\mathrm{o}}$, satisfies
-\begin{equation}
+\begin{equation}\label{eq:9.2}
     \Pi^{\prime}\left(e^{\mathrm{o}}\right)=\left(\frac{\eta-1}{\eta}\right)\left(e^{\mathrm{o}}\right)^{-1 / \eta} E\left[\left(A_{1}^{\eta}+A_{2}^{\eta}\right)^{1 / \eta} Y^{(\eta-1) / \eta}\right]-c^{\prime}\left(e^{\mathrm{o}}\right)=0.
 \end{equation}
 
@@ -53,10 +54,27 @@ $$
 
 The supplier could offer the retailers a contract that identifies $w(\alpha,Q)$ as the wholesale price contingent on the realization of $A$ and $Y$. The supplier merely commits at the start of the game to hold a market for output after the retailers observe their demand realizations. The unique market-clearing price is $w(\alpha,Q)$, and so the market optimizes the supply chain's profit without the supplier observing $A$.
 
-
-
-
-
+Consider the\textbf{ production manager}. Assume the supplier can't observe $e$. But she can observe the final output $Ye$. So suppose the supplier pays the production manager
+\begin{equation}\label{eq:9.3}
+    \begin{aligned}
+        &\left(\frac{\eta-1}{\eta}\right)\left(e^{0}\right)^{-1 / \eta} E\left[\left(A_{1}^{\eta}+A_{2}^{\eta}\right)^{1 / \eta} Y^{(\eta-1) / \eta}\right] / E[Y]\\
+        =&E\left[Q w(A, Q) \mid e^{0}\right] / E\left[Q \mid e^{\mathrm{o}}\right]
+    \end{aligned}
+\end{equation}
+per unit of realized output. 
+Hence, the supplier pays the production manager the \textbf{expected shadow price} of capacity and sells capacity to the retailer for the \textbf{realized shadow price} of capacity. The production manager's expected utility is 
+$$
+u(e)=\left(\frac{\eta-1}{\eta}\right)\left(e^{\mathrm{o}}\right)^{-1 / \eta} E\left[\left(A_{1}^{\eta}+A_{2}^{\eta}\right)^{1 / \eta} Y^{(\eta-1) / \eta}\right] e-c(e)
+$$
+and the marginal utility is
+$$
+u^{\prime}(e)=\left(\frac{\eta-1}{\eta}\right)\left(e^{\mathrm{o}}\right)^{-1 / \eta} E\left[\left(A_{1}^{\eta}+A_{2}^{\eta}\right)^{1 / \eta} Y^{(\eta-1) / \eta}\right]-c^{\prime}(e) .
+$$
+From \autoref{eq:9.2} we know the production manager's optimal effort is $e^o$. 
+\begin{note}
+    The supplier earns zero profit in expectation from the internal market. $E[Qw(A,Q)|e^o]$ is the expected revenue from the retailers, and from \autoref{eq:9.3}, it's also the expected payout to the production manager.
+    Kouvelis and Lariviere (2000) 
+\end{note}
 
 
 
