@@ -1,0 +1,64 @@
+\newpage
+\section{Coordination with internal markets}
+\subsection{Model and analysis}
+Suppose there is one supplier, one production manager and two retailers. The production manager is the supplier's employee and the retailers are independent firms.
+
+\begin{itemize}
+    \item The production manager chooses a product input level $e$, which yields an output of $Q=Y e$ finished units, where $Y\in\left[0,1\right]$ is a random variable.
+    \item The production manager incurs cost $c(e)$, where $c(e)$ is strictly convex and increasing.
+    \item Retailer $i$ observes $\alpha_i$, the realization of $A_i>0$. Each retailer submits an order to the supplier.
+    \item The supplier allocates $q_i$ to retailer $i$ with $q_i$ not exceeding the order and $q_1+q_2\leq Q$.
+    \item Retailer $i$ earns $q_i p_i(q_i)$ where $p_i(q_i)=\alpha_i q_i^{-1/\eta}$ and $\eta>1$ is the constant demand elasticity. 
+    \item Let $\theta$ be the realization of $Y$, $A=\left\{A_1,A_2\right\} $and $\alpha=\left\{\alpha_1,\alpha_2\right\}$.
+\end{itemize}
+
+\textbf{First consider the supply chain optimal actions}. 
+Let $\gamma$ be the fraction of $Q$ that is allocated to retailer $1$. The total retailer revenue is 
+\begin{equation*}
+    \pi(\gamma,\alpha,Q)=\left(\alpha_1 \gamma^{(\eta-1)/\eta}+\alpha_2 (1-\gamma)^{(\eta-1)/\eta}\right)Q^{(\eta-1)/\eta}.
+\end{equation*}
+Let $\gamma^{\circ}(\alpha)$ be the optimal share to allocate to retailer one:
+\begin{equation}
+    \gamma^{o}(\alpha)=\frac{\alpha_{1}^{\eta}}{\alpha_{1}^{\eta}+\alpha_{2}^{\eta}}
+\end{equation}
+Conditional on an optimal allocation, the retailers' total revenue is
+$$
+\pi(\alpha, Q)=\pi\left(\gamma^{\circ}(\alpha), \alpha, Q\right)=\left(\alpha_{1}^{\eta}+\alpha_{2}^{\eta}\right)^{1 / \eta} Q^{(\eta-1) / \eta} .
+$$
+Total expected supply chain profit, $\Pi(e, A, Y)$, is thus
+$$
+\Pi(e, A, Y)=E[\pi(A, Y e)]-c(e) .
+$$
+Profit is concave in $e$, so the unique optimal production effort level, $e^{\mathrm{o}}$, satisfies
+\begin{equation}
+    \Pi^{\prime}\left(e^{\mathrm{o}}\right)=\left(\frac{\eta-1}{\eta}\right)\left(e^{\mathrm{o}}\right)^{-1 / \eta} E\left[\left(A_{1}^{\eta}+A_{2}^{\eta}\right)^{1 / \eta} Y^{(\eta-1) / \eta}\right]-c^{\prime}\left(e^{\mathrm{o}}\right)=0.
+\end{equation}
+
+Now consider \textbf{decentralized operations}. 
+Suppose the supplier charges the reatilers $w$ per unit. Then retailer $i$'s profit is 
+\begin{equation*}
+    \pi_i(q_i,w)=\alpha_i q_i^{(\eta-1)\eta}-w q_i.
+\end{equation*}
+Retailer $i$'s optimal quantity, $q_{i}^{*}$, satisfies
+$$
+\frac{\partial \pi_{i}\left(q_{i}^{*}, w\right)}{\partial q_{i}}=0=\left(\frac{\eta-1}{\eta}\right) \alpha_{i}\left(q_{i}^{*}\right)^{-1 / \eta}-w .
+$$
+It follows that $q_{i}^{*}=\gamma^{\circ}(\alpha) Q$ when $w=w(\alpha, Q)$,
+$$
+w(\alpha, Q)=\left(\frac{\eta-1}{\eta}\right)\left(\alpha_{1}^{\eta}+\alpha_{2}^{\eta}\right)^{1 / \eta} Q^{-1 / \eta}
+$$
+\begin{note}
+    $$\frac{\partial\pi(\alpha,Q)}{\partial Q}=w(\alpha,Q).$$
+\end{note}
+
+The supplier could offer the retailers a contract that identifies $w(\alpha,Q)$ as the wholesale price contingent on the realization of $A$ and $Y$. The supplier merely commits at the start of the game to hold a market for output after the retailers observe their demand realizations. The unique market-clearing price is $w(\alpha,Q)$, and so the market optimizes the supply chain's profit without the supplier observing $A$.
+
+
+
+
+
+
+
+
+
+
