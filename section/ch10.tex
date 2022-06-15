@@ -56,11 +56,51 @@ i.e., $k_\theta^o$ does not maximizes the supplier's profit if $q_i=k_\theta^o$.
     $w_o$ has nothing do with the contract term $k$ in the profit function, so the supplier sets his capacity as if the supplier is offered just a wholesale-price contract $w_e$. 
 \end{note}
 
-To influence the supplier's capacity decision the manufacturer is relegated to a contract \textbf{based on his final order}, $q_f$. An obvious candidate is the wholesafe-price contract. 
+To influence the supplier's capacity decision the manufacturer is relegated to a contract \textbf{based on his final order}, $q_f$. An obvious candidate is the wholesafe-price contract. Now the supplier's profit is
+\begin{equation*}
+    \pi_\theta(k)=(w-c_p)S_\theta(k)-c_k k.
+\end{equation*}
+Since $\pi_\theta$ is strictly concave, there is a one-to-one relationship between $w$ and $k$. 
+Let $w_\theta(k)$ be 
+\begin{equation*}
+    w_\theta(k)=\frac{c_k}{\overline{F}_\theta(k)}+c_p.
+\end{equation*}
+Now the manufacturer's profit function becomes
+\begin{equation*}
+    \Pi_\theta(k)=(r-w_\theta(k))S_\theta(k).
+\end{equation*}
+Differentiate it, we have 
+$$
+\begin{aligned}
+\Pi_{\theta}^{\prime}(k) &=\left(r-w_{\theta}(k)\right) S_{\theta}^{\prime}(k)-w_{\theta}^{\prime}(k) S_{\theta}(k) \\
+\Pi_{\theta}^{\prime \prime}(k) &=\left(r-w_{\theta}(k)\right) S_{\theta}^{\prime \prime}(k)-w_{\theta}^{\prime \prime}(k) S_{\theta}(k)-2 w_{\theta}^{\prime}(k) S_{\theta}^{\prime}(k) \\
+&=-\left(r-c_{p}+\frac{c_{k}}{\overline{F}_{\theta}(k)}\right) f_{\theta}(k)-w_{\theta}^{\prime \prime}(k) S_{\theta}(k)
+\end{aligned}
+$$
+If $w_{\theta}^{\prime \prime}(k)>0$, then $\Pi_{\theta}(k)$ is strictly concave. So for convenience assume $w_{\theta}^{\prime \prime}(k)>0$, which holds for any demand distribution with an increasing failure rate, i.e., the hazard rate, $f_{\theta}(x) /\left(1-F_{\theta}(x)\right)$, is increasing\footnote{The normal, exponential and the uniform meet that condition, as well as the gamma and Weibull with some parameter restrictions.}. Therefore, there is a unique optimal capacity, $k_{\theta}^{*}$, and a unique wholesale price that induces that capacity, $w_{\theta}^{*}=w\left(k_{\theta}^{*}\right)$. It follows from $\Pi_{\theta}^{\prime}\left(k_{\theta}^{*}\right)=0$ that the supply chain is not coordinated, $k_{\theta}^{*}<k_{\theta}^{o}$ :
+$$
+\begin{aligned} 
+\overline{F}_{\theta}\left(k_{\theta}^{*}\right) &=\frac{c_{k}}{r-c_{p}}\left(1+\frac{f_{\theta}\left(k_{\theta}^{*}\right)}{\overline{F}_{\theta}\left(k_{\theta}^{*}\right)^{2}} S_{\theta}\left(k_{\theta}^{*}\right)\right) \\
+&=\overline{F}_{\theta}\left(k_{\theta}^{o}\right)\left(1+\frac{f_{\theta}\left(k_{\theta}^{*}\right)}{\overline{F}_{\theta}\left(k_{\theta}^{*}\right)^{2}} S_{\theta}\left(k_{\theta}^{*}\right)\right) .
+\end{aligned}
+$$
 
+\subsection{Forecast sharing}
+Now suppose the supplier \textbf{does not} observe $\theta$. 
 
+First consider \textbf{separating equilibria} with \textbf{forced compliance.}
+Suppose the low-type manufacturer offers an options contract with
+$$
+\lambda_{1}=1-\frac{\hat{\pi}}{\Omega_{1}^{0}}
+$$
+and the high-type manufacturer offers $\min \left\{\lambda_{h}, \hat{\lambda}_{h}\right\}$, where
+$$
+\lambda_{\mathrm{h}}=1-\frac{\hat{\pi}}{\Omega_{\mathrm{h}}^{\mathrm{o}}}
+$$
+and
+$$
+\hat{\lambda}_{\mathrm{h}}=\frac{\Omega_{1}^{\mathrm{o}}-\hat{\pi}}{\Omega_{1}\left(k_{\mathrm{h}}^{\mathrm{o}}\right)} .
+$$
+The above contracts are a separating equilibrium.
 
-
-
-
-
+With voluntary compliance, there are many methods to be considered. See Cachon and Lariviere (2001).
