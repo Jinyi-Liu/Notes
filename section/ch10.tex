@@ -1,0 +1,66 @@
+\newpage
+\section{Asymmetric information}
+Based on Cachon and Lariviere (2001). In this model coordination requires (1) the supplier takes the correct action and (2) an accurate demand forecast is shared.
+
+\subsection{The capacity procurement game}
+In the capacity procurement game a manufacturer, $M$, develops a new product with uncertain demand. A single potential supplier, $S$, produces a critical component. Let $D_\theta$ be demand, where $\theta\in\{h,l\}$. Let $F(x\mid\theta)$ be the distribution function of demand and $D_h$ stochastically dominates $D_l$. 
+
+With asymmetric information the $\theta$ parameter is observed \textbf{only by the manufacturer}. $P(\theta=h)=\rho$ where $\rho$ is a commom knowledge.
+
+The interactions are divided into two states. 
+\begin{enumerate}
+    \item $M$ gives $S$ a demand forecast and offers $S$ a contract which includes an inital order, $q_i$. Assuming $S$ accepts the contract and constructs $k$ units of capacity at a cost $c_k>0$ per unit. 
+    \item $M$ observes $D_\theta$ and places her final order with $S$, $q_f$, where the contract specifies the set of feasible final orders. Then $S$ produces $\min\{D_\theta,k\}$ units at a cost of $c_p>0$ per unit. $M$ pays $S$ based on the agreed contract and $M$ earns $r>c_p+c_k$ per unit of demand satisfied. The salvage value of unused units of capacity is normalized to zero. 
+\end{enumerate}
+
+\subsection{Full information}
+Let $S_\theta(x)$ be expected sales with $x$ units of capacity,
+\begin{align*}
+    S_\theta(x)&=x-E\left[\left(x-D_\theta\right)^+\right]\\
+    &=x-\int_0^x F_\theta(x)dx.
+\end{align*}
+Let $\Omega_\theta(k)$ be the supply chain's expected profit with $k$ units of capacity,
+\begin{equation*}
+    \Omega_\theta(k)=(r-c_p)S_\theta(k)-c_k k.
+\end{equation*}
+Given that $\Omega_{\theta}(k)$ is concave, the optimal capacity, $k_{\theta}^{\mathrm{o}}$, satisfies the newsvendor critical ratio:
+$$
+\overline{F}_{\theta}\left(k_{\theta}^{\mathrm{o}}\right)=\frac{c_{k}}{r-c_{p}},
+$$
+Let $\Omega_\theta^o=\Omega_\theta(k_\theta^o)$. The supply chain can be coordinated with building $K_\theta^o$ units of capacity.
+
+Now consider the game between $M$ and $S$. Consider an options contract: $M$ purchases $q_i$ options for $w_o$ per option at state 1 and then pays $w_e$ to exercise each option at stage $2$. Hence, the expected transfer payment is 
+\begin{equation*}
+    w_o q_i+w_e S_\theta(q_i).
+\end{equation*}
+
+Assuming $k=q_i$, the manufacturer's expected profit is
+\begin{equation*}
+    \Pi_\theta(q_i)=(r-w_e)S_\theta(q_i)-w_o q_i.
+\end{equation*}
+Then choose parameters such that $r-w_e=\lambda(r-c_p)$ and $w_o=\lambda c_k$ where $\lambda\in[0,1]$, we have
+\begin{equation*}
+    \Pi_\theta(q_i)=\lambda\Omega_\theta(q_i).
+\end{equation*}
+Hence, $q_i=k_\theta^o$ is the manufacturer's optimal order. It maximizes the supplier's profit, apparently confirming the initial $k=q_i$ assumption.
+
+However, the manufacturer \textbf{can't} be sure the supplier indeed builds $k=q_i$. Consider the following profit function for a supplier (assuming $k<q_i$) who \textbf{believe} demand is $\tau$,
+\begin{align*}
+    \pi(k,q_i,\tau)&=(w_e-c_p)s_\tau(k)+w_o q_i - c_k k\\
+    &=(1-\lambda)(r-c_p)s_\tau(k)-c_k(k-\lambda q_i).
+\end{align*}
+Then we find that
+$$\frac{\partial\pi(k_\theta^o,k_\theta^o,\theta)}{\partial k}<0,$$
+i.e., $k_\theta^o$ does not maximizes the supplier's profit if $q_i=k_\theta^o$. 
+\begin{note}
+    $w_o$ has nothing do with the contract term $k$ in the profit function, so the supplier sets his capacity as if the supplier is offered just a wholesale-price contract $w_e$. 
+\end{note}
+
+To influence the supplier's capacity decision the manufacturer is relegated to a contract \textbf{based on his final order}, $q_f$. An obvious candidate is the wholesafe-price contract. 
+
+
+
+
+
+
+
